@@ -1,0 +1,25 @@
+.sidebarRow {
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  cursor: pointer;
+  color: rgb(180, 176, 176);
+  padding: 10px 20px;
+}
+.sidebarRow:hover {
+  /* background-image: linear-gradient(to top, #bdc2e8 0%, #bdc2e8 1%, #e6dee9 100%);  */
+  border-radius: 5px;
+  background: #403857;
+  color: #fff;
+  
+}
+.sidebarRow > p {
+  margin-left: 10px;
+  color: rgb(180, 176, 176);
+}
+
+.sidebarRow > .MuiSvgIcon-root {
+  font-size: large;
+  
+}
+

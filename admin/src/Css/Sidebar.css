@@ -1,0 +1,19 @@
+.sidebar {
+  z-index: 1;
+  position: fixed;
+  left: 250px;
+  width: 200px;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background-color: rgb(29, 30, 55);
+  border-radius: 0px 5px 0px 0px;
+  
+}
+
+
+.sidebar__link {
+  text-decoration: none;
+  display: block;
+  background: none;
+}

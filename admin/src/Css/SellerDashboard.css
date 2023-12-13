@@ -1,0 +1,41 @@
+.dashBoard{
+    margin-left: 200px;
+    padding-right: 5px;
+}
+.Order_information {
+    display: flex;
+}
+.Order_card_1{
+    display: flex;
+    height:100px;
+    width: 300px;
+    margin: 20px;
+    background-color: #fff;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    color: blueviolet;
+}
+
+.right .MuiSvgIcon-root {
+    font-size: xx-large;
+}
+.left > p {
+    font-size: 14px;
+}
+
+.product_and_order_section {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+}
+.product{
+    width: 65%;
+}
+.order {
+    width: 35%;
+}
+.dropwown{
+    position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(522.5px, 3847.5px, 0px)
+}

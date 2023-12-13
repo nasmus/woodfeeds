@@ -1,0 +1,23 @@
+.Link_style{
+    text-decoration: none;
+    color: black;
+    font-size: 15px;
+    font-weight: 500;
+    
+}
+.Link_style:hover{
+    color: rgb(213, 141, 8);
+}
+.sidebar>ul{
+    margin-top: 15px;
+    margin-right: 5px;
+    border-radius: 15px;
+    padding-left: 10px;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+.sidebar> ul li {
+    padding: 4px 4px;
+    font-weight: 200; 
+};
+
+

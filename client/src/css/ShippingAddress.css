@@ -1,0 +1,11 @@
+.address{
+   display: flex;
+   justify-content: space-evenly;
+   margin: 10px;
+}
+@media only screen and (max-width: 760px){
+   .address{
+      display: flex;
+      flex-direction: column;
+   }
+}

@@ -1,0 +1,26 @@
+.navbar{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    z-index: 1;
+}
+
+.nav-manu{
+    background-color: #ffffff;
+    width: 230px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: -100%; 
+    transition: 850ms;
+}
+.nav-manu.active {
+    left: 0;
+    transition: 350ms;
+}
+
+.nav-manu-items{
+    width: 100%;
+}
