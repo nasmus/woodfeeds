@@ -1,18 +1,17 @@
-import React, { useEffect, useReducer, useState } from "react";
-import { useContext } from "react";
-import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
-import "../../css/ProductScreen.css";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
-import Rating from "../../components/Review/Rating";
 import Button from "react-bootstrap/esm/Button";
-import { getError } from "../../utils";
+import { useNavigate, useParams } from "react-router-dom";
 import { Store } from "../../Store";
-import Product from "../../components/Product";
-import Review from "../../components/Review/Review";
-import RatingSubmit from "../../components/Review/RatingSubmit";
 import LoadingBox from "../../components/LoadingBox";
 import MessageBox from "../../components/MessageBox";
+import Product from "../../components/Product";
+import Rating from "../../components/Review/Rating";
+import RatingSubmit from "../../components/Review/RatingSubmit";
+import Review from "../../components/Review/Review";
+import "../../css/ProductScreen.css";
+import { getError } from "../../utils";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -127,7 +126,12 @@ function ProductScreen() {
           <h5>${product.price}</h5>
           <h4>Product Features</h4>
           <ul>
-            <li style={{ listStyleType: "square" }}> <div dangerouslySetInnerHTML={{ __html: product.description }} /> </li>
+            <li style={{ listStyleType: "square" }}>
+              {" "}
+              <div
+                dangerouslySetInnerHTML={{ __html: product.description }}
+              />{" "}
+            </li>
           </ul>
           <div className="button">
             {product.countInStock > 0 && (
@@ -141,6 +145,20 @@ function ProductScreen() {
             )}
           </div>
         </div>
+      </div>
+      <div className="product_description mx-8 lg:my-2 my-4">
+        <h3>Description</h3>
+        <p>
+          It is a long established fact that a reader will be distracted by the
+          readable content of a page when looking at its layout. The point of
+          using Lorem Ipsum is that it has a more-or-less normal distribution of
+          letters, as opposed to using 'Content here, content here', making it
+          look like readable English. Many desktop publishing packages and web
+          page editors now use Lorem Ipsum as their default model text, and a
+          search for 'lorem ipsum' will uncover many web sites still in their
+          infancy. Various versions have evolved over the years, sometimes by
+          accident, sometimes on purpose (injected humour and the like.
+        </p>
       </div>
       <div className="product_suggest">
         <h2>Product Related To This Item</h2>
