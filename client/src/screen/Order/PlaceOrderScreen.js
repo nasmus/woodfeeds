@@ -118,7 +118,16 @@ function PlaceOrderScreen() {
                   <strong>Address:</strong> {cart.shippingAddress.address},
                   {cart.shippingAddress.city},{cart.shippingAddress.distric}
                 </Card.Text>
-                <Link className="no-underline" to="/shipping">
+                <Link
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  to="/shipping"
+                >
+                  {/* <button
+                    type="button"
+                    class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Small
+                  </button> */}
                   Edit
                 </Link>
               </Card.Body>
@@ -130,7 +139,10 @@ function PlaceOrderScreen() {
                 <Card.Text>
                   <strong>Method:</strong> {cart.paymentMethod}
                 </Card.Text>
-                <Link className="no-underline" to="/payment">
+                <Link
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  to="/payment"
+                >
                   Edit
                 </Link>
               </Card.Body>
@@ -142,7 +154,6 @@ function PlaceOrderScreen() {
                 <ListGroup variant="flush">
                   {cart.cartItems.map((item) => (
                     <ListGroup.Item key={item._id}>
-                      
                       <Row className="align-items-center ">
                         <Col xs={6} md={6}>
                           <div className="flex lg:w-[90%]">
@@ -170,7 +181,10 @@ function PlaceOrderScreen() {
                     </ListGroup.Item>
                   ))}
                 </ListGroup>
-                <Link className="no-underline" to="/cart">
+                <Link
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  to="/cart"
+                >
                   Edit
                 </Link>
               </Card.Body>
