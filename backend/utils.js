@@ -1,15 +1,18 @@
 import jwt from "jsonwebtoken";
 
 export const generateToken = (user) => {
-  return jwt.sign({user}, process.env.JWT_SECRET, {
-    expiresIn: "5h",
-  });
-};
-
-export const generateTokenAdmin = (user) => {
-  return jwt.sign(user, process.env.JWT_SECRET, {
-    expiresIn: "5h",
-  });
+  return jwt.sign(
+    {
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    },
+    process.env.JWT_SECRET,
+    {
+      expiresIn: "5h",
+    }
+  );
 };
 
 export const isAuth = (req, res, next) => {
@@ -48,6 +51,6 @@ export const isSeller = (req, res, next) => {
 export const baseUrl = () =>
   process.env.BASE_URL
     ? process.env.BASE_URL
-    : process.env.NODE_ENV !== 'production'
-    ? 'http://localhost:3000'
-    : 'https://yourdomain.com';
+    : process.env.NODE_ENV !== "production"
+    ? "http://localhost:3000"
+    : "https://yourdomain.com";

@@ -2,7 +2,7 @@ import express  from "express";
 import expressAsyncHandler from "express-async-handler";
 import User from '../../../models/userModel.js';
 import bcrypt from 'bcryptjs';
-import { generateTokenAdmin } from "../../../utils.js";
+import { generateToken } from "../../../utils.js";
 const adminLogInRouter = express.Router(); 
 
 adminLogInRouter.post(
@@ -18,7 +18,7 @@ adminLogInRouter.post(
                     phone:user.phone,
                     isAdmin:user.isAdmin,
                     role:user.role,
-                    token: generateTokenAdmin(user.toObject()),
+                    token: generateToken(user.toObject()),
                 })
             }
         }
