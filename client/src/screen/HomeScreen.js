@@ -1,10 +1,11 @@
-import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
-import "../css/Product.css";
-import Product from "../components/Product";
+import React, { useEffect, useReducer } from "react";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import Product from "../components/Product";
 import BannerSidebar from "../components/Sidebar/BannerSidebar";
+import "../css/Product.css";
+import side from "../css/side.png";
 import TopRatedProduct from "./ProudctScreen/TopRatedProduct";
 
 const reducer = (state, action) => {
@@ -54,9 +55,13 @@ function HomeScreen(props) {
           <MessageBox>{error}</MessageBox>
         ) : (
           <>
-            <div>
-              <div>
+            <div className="flex items-center">
+              <div className="w-3/5">
                 <BannerSidebar />
+              </div>
+              <div className="w-2/5">
+                <img src={side} alt="sidebanner" />
+                <img src={side} alt="sidebanner" />
               </div>
             </div>
             <TopRatedProduct />

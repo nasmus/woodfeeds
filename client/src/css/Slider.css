@@ -1,96 +1,88 @@
 /* Styling for the banner slider container */
 .banner-slider {
-    position: relative;
-    width: 98%;
- /* Adjust the maximum width as needed */
-    margin: 0 auto;
-    overflow: hidden;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    
-  }
+  position: relative;
+  width: 98%;
+  /* Adjust the maximum width as needed */
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 
-  .banner {
-    width: 100%; /* Adjust the max width as needed */
-    overflow: hidden;
-    position: relative;
-  }
-  
-  /* Styling for the banner images */
-  .banner-slider img {
-    width: 100%;
-    height: 200px;
-    display: block;
-    
-     
-    
-  }
+.banner {
+  width: 100%; /* Adjust the max width as needed */
+  overflow: hidden;
+  position: relative;
+}
 
-  /* .banner-slider .image img {
+/* Styling for the banner images */
+.banner-slider img {
+  width: 775px;
+  height: 377px;
+  display: block;
+}
+
+/* .banner-slider .image img {
     transform: translateY(-50%);
     transition: transform 0.5s ease;
     animation: slide 5s infinite alternate;
   } */
-  
-  /* Styling for the navigation buttons */
-  .banner-slider button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgb(252, 250, 250);
-    color: rgb(24, 24, 24);
-    padding: 30px 8px;
-    cursor: pointer;
-    transition: background 0.3s;
-    font-size: 16px;
-    border-radius: 0px 5px 5px 0px;
-    
-  }
-  
-  .banner-slider button:hover {
-    background: #fff;
-    opacity: 1;
-  }
-  
-  .banner-slider button:first-child {
-    left: 0;
-    
-  }
-  
-  .banner-slider button:last-child {
-    right: 0;
-    border-radius: 5px 0px 0px 5px;
-  }
-  
-  .slider-dots {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  .slider-dot {
-    width: 10px;
-    height: 10px;
-    background-color: #ccc;
-    border-radius: 50%;
-    margin: 0 5px;
-    cursor: pointer;
-  }
-  
-  .slider-dot.active {
-    background-color: #eea107;
-  }
 
-  .slider-image {
-    transition: transform 0.5s linear;
-  }
+/* Styling for the navigation buttons */
+.banner-slider button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgb(252, 250, 250);
+  color: rgb(24, 24, 24);
+  padding: 30px 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;
+  border-radius: 0px 5px 5px 0px;
+}
 
-  .slider-image.active {
-    transform: translateX(0);
-  }
-  
-  .slider-image {
-    transform: translateX(-100%);
-  }
+.banner-slider button:hover {
+  background: #fff;
+  opacity: 1;
+}
 
-  
+.banner-slider button:first-child {
+  left: 0;
+}
+
+.banner-slider button:last-child {
+  right: 0;
+  border-radius: 5px 0px 0px 5px;
+}
+
+.slider-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.slider-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+
+.slider-dot.active {
+  background-color: #eea107;
+}
+
+.slider-image {
+  transition: transform 0.5s linear;
+}
+
+.slider-image.active {
+  transform: translateX(0);
+}
+
+.slider-image {
+  transform: translateX(-100%);
+}
