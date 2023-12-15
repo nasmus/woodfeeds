@@ -117,7 +117,7 @@ function ProductScreen() {
               : ""}
           </div>
         </div>
-        <div className="product_content">
+        <div className="product_content pt-4">
           <h1>{product.name}</h1>
           <p>
             <Rating rating={product.rating} numReviews={product.numReviews} /> 7
