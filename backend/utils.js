@@ -15,6 +15,13 @@ export const generateToken = (user) => {
   );
 };
 
+export const generateTokenAdmin = (user) => {
+  return jwt.sign(user,process.env.JWT_SECRET,
+    {
+      expiresIn: "5h",
+    })
+}
+
 export const isAuth = (req, res, next) => {
   const authorization = req.headers.authorization;
   if (authorization) {
