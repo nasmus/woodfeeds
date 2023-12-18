@@ -239,13 +239,20 @@ export default function SearchScreen() {
                     </div>
                   </Col>
                   <Col className="text-end">
-                    Sort by{" "}
+                    <span className="me-2">Sort By</span>
+                    {/* <select
+                      value={order}
+                      onChange={(e) => {
+                        navigate(getFilterUrl({ order: e.target.value }));
+                      }}
+                      className="border border-black"
+                    > */}
                     <select
                       value={order}
                       onChange={(e) => {
                         navigate(getFilterUrl({ order: e.target.value }));
                       }}
-                      className="border-4 border-yallow-300"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 inline-block p-2.5"
                     >
                       <option value="newest">Newest Arrivals</option>
                       <option value="lowest">Price: Low to High</option>
