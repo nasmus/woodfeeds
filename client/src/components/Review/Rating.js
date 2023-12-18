@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 
 function Rating(props) {
-    const { rating,numReviews,caption } = props;
+    const { rating,numReviews = 0,caption } = props;
   return (
     <div style={{color:"#ff8000",textDecoration:'none'}} className='rating'>
         <span>
