@@ -1,16 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../../css/Slider.css";
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 function BannerSidebar() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const banners = [
-    "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/b91142ce378acb54.jpg?q=20",
+    "https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26",
     "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/2dc3aafcc8afbaf8.jpg?q=20",
     "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/dd7f425c6a2fa49a.jpg?q=20",
     "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/61a578e7258cbaa5.jpeg?q=20",
     "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/99fae2c9891a1c0c.jpeg?q=20",
-    "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/7fd0e4ab26429926.jpg?q=20"
+    "https://rukminim1.flixcart.com/fk-p-flap/1600/270/image/7fd0e4ab26429926.jpg?q=20",
 
     // Add your banner image URLs here
   ];
@@ -23,11 +21,7 @@ function BannerSidebar() {
 //     return () => clearInterval(interval);
 //   }, [banners.length]);
 
-  const previousBanner = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + banners.length) % banners.length
-    );
-  };
+
 
   const nextBanner = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);

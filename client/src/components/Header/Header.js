@@ -1,8 +1,9 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { Store } from "../../Store";
+import { ExpandMore, Person } from "@mui/icons-material";
+import React, { useContext } from "react";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
+import { Link } from "react-router-dom";
+import { Store } from "../../Store";
 import logo from "../../css/logo.png";
 import SearchBox from "../SearchBox";
 import SocialHeader from "./SocialHeader";
@@ -18,6 +19,7 @@ function Header() {
     localStorage.removeItem("paymentMethod");
   };
 
+  
   return (
     <div>
       <SocialHeader />
@@ -44,7 +46,17 @@ function Header() {
                   <div className="ec-header-user dropdown">
                     {userInfo ? (
                       <NavDropdown
-                        title={<i className="fi-rr-user"><span className="font-serif font-normal " >{userInfo.name}</span></i>}
+                        title={
+                          <button
+                            type="button"
+                            class=" hover:text-white hover:bg-blue-800 focus:outline-none  rounded-lg text-md px-2.5 py-2 text-center inline-flex items-center me-2"
+                          >
+                            <Person className="me-2" />
+                            {userInfo.name}
+                            <ExpandMore />
+                          </button>
+                        }
+                        x
                         id="basic-nav-dropdown"
                       >
                         <LinkContainer to="/profile">
@@ -66,18 +78,23 @@ function Header() {
                         </Link>
                       </NavDropdown>
                     ) : (
+                      // <Link
+                      //   to="/signin"
+                      //   style={{ textDecoration: "none" }}
+                      //   className="dropdown-toggle"
+                      //   data-bs-toggle="dropdown"
+                      // >
+                      //   <i className="fi-rr-user"></i>Sign In
+                      // </Link>
                       <Link
                         to="/signin"
-                        style={{ textDecoration: "none" }}
-                        className="dropdown-toggle"
-                        data-bs-toggle="dropdown"
+                        class="hover:bg-blue-800 hover:text-white focus:outline-none  rounded-lg text-md px-2.5 py-2 text-center inline-flex items-center me-2 no-underline"
                       >
-                        <i className="fi-rr-user"></i>Sign In
+                        <Person className="me-2" />
+                        <span className="me-2">Login</span>
                       </Link>
                     )}
                   </div>
-
-                  
 
                   <Link to="/cart" className="ec-header-btn ec-side-toggle">
                     <div className="header-icon">

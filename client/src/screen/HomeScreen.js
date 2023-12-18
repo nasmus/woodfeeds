@@ -1,10 +1,11 @@
-import React, { useEffect, useReducer, useState } from "react";
 import axios from "axios";
-import "../css/Product.css";
-import Product from "../components/Product";
+import React, { useEffect, useReducer } from "react";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import Product from "../components/Product";
 import BannerSidebar from "../components/Sidebar/BannerSidebar";
+import "../css/Product.css";
+import side from "../css/side.png";
 import TopRatedProduct from "./ProudctScreen/TopRatedProduct";
 
 const reducer = (state, action) => {
@@ -54,18 +55,10 @@ function HomeScreen(props) {
           <MessageBox>{error}</MessageBox>
         ) : (
           <>
-            <div className="flex justify-between items-center">
-              
+            <div>
+              <div>
                 <BannerSidebar />
-              
-              {/* <div className=" w-4/12 flex flex-col gap-3 ">
-                <div className=" w-11/12">
-                  <img className="" src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" />
-                </div>
-                <div className=" w-11/12 " >
-                  <img src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" />
-                </div>
-              </div> */}
+              </div>
             </div>
             <TopRatedProduct />
             <div className="product-grid">

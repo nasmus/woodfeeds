@@ -1,11 +1,9 @@
+import axios from "axios";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Store } from "../Store";
 import '../css/Product.css';
 import Rating from "./Review/Rating";
-import { Store } from "../Store";
-import axios from "axios";
-import Button from "@mui/material/Button";
-import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 
 function Product(props) {
   const { product } = props;
@@ -44,7 +42,7 @@ function Product(props) {
           <p>{product.name}</p>
         </Link>
         <span>
-          <Rating rating={product.rating} numReviews={product.numReviews} />
+          <Rating rating={product.rating} numReviews={product.numReviews ? product.numReviews : 0} />
         </span>
         <p>${product.price}</p>
         {/* {product.countInStock === 0 ? (
