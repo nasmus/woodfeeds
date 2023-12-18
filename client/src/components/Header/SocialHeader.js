@@ -1,13 +1,13 @@
-import React, { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import "../../css/Navbar.css";
-import CloseIcon from "@mui/icons-material/Close";
-import Accordion from "../Sidebar/Accordion";
 import { Settings } from "@mui/icons-material";
+import CloseIcon from "@mui/icons-material/Close";
 import ExitToAppIcon from "@mui/icons-material/ExitToApp";
 import { Avatar } from "@mui/material";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Store } from "../../Store";
+import "../../css/Navbar.css";
+import Accordion from "../Sidebar/Accordion";
 
 function SocialHeader() {
   const [category, setCategory] = useState([]);
@@ -60,7 +60,6 @@ function SocialHeader() {
             <span className="ec-header-count cart-count-lable">
               {cart.cartItems.length > 0 && (
                 <span>
-                  
                   {cart.cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
                 </span>
               )}
@@ -95,8 +94,16 @@ function SocialHeader() {
                   <Avatar />
                 </div>
                 <div className=" pl-3 ">
-                  <p className="m-0 text-lg font-bold ">Alex Jorder</p>
-                  <p className="m-0 text-sm font-light ">Member</p>
+                  {userInfo ? (
+                    <>
+                      <p className="m-0 text-lg font-bold ">{userInfo.name}</p>
+                      <p className="m-0 text-sm font-light ">{userInfo.role}</p>
+                    </>
+                  ) : (
+                    <Link className="no-underline" to="/signin">
+                      <p className="m-0 text-lg font-bold">Log In</p>
+                    </Link>
+                  )}
                 </div>
               </section>
               <section className="border-b py-2">
@@ -131,6 +138,7 @@ function SocialHeader() {
               </section>
             </div>
             <div className=" pb-3 pl-2 ">
+              {userInfo ? (
               <section className=" bottom-0 text-slate-400">
                 <div className="flex ">
                   <Settings
@@ -152,11 +160,12 @@ function SocialHeader() {
                       className={`mt-2 text-slate-400 `}
                     />
                     <button className="w-full flex items-center justify-between p-2  rounded-md focus:outline-none">
-                      <span className={`text-sm font-medium  `}>Logout</span>
+                      <span className={`text-sm font-medium`}>Logout</span>
                     </button>
                   </div>
                 </Link>
               </section>
+              ) : ( '' ) }
             </div>
           </div>
         </div>
