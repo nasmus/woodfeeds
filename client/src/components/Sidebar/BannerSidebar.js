@@ -52,15 +52,13 @@ function BannerSidebar() {
           <img 
           src={banners[currentIndex]} 
           alt={`Slide ${currentIndex + 1}`}
-            className={`slider-image ${currentIndex === currentIndex ? 'active' : ''}`}
+            className={` border slider-image ${currentIndex === currentIndex ? 'active' : ''}`}
           />
         </div>
         
-        <button onClick={previousBanner}>  <ArrowBackIosNewIcon /> </button>
-        <button onClick={nextBanner}> <ArrowForwardIosIcon /> </button>
         
       </div>
-      <div className="slider-dots">
+      {/* <div className="slider-dots">
         {banners.map((_, index) => (
           <div
             key={index}
@@ -68,7 +66,7 @@ function BannerSidebar() {
             onClick={() => setCurrentIndex(index)}
           />
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

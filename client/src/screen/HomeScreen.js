@@ -54,10 +54,18 @@ function HomeScreen(props) {
           <MessageBox>{error}</MessageBox>
         ) : (
           <>
-            <div>
-              <div>
+            <div className="flex justify-between items-center">
+              
                 <BannerSidebar />
-              </div>
+              
+              {/* <div className=" w-4/12 flex flex-col gap-3 ">
+                <div className=" w-11/12">
+                  <img className="" src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" />
+                </div>
+                <div className=" w-11/12 " >
+                  <img src="https://dfstudio-d420.kxcdn.com/wordpress/wp-content/uploads/2019/06/digital_camera_photo-1080x675.jpg" alt="" />
+                </div>
+              </div> */}
             </div>
             <TopRatedProduct />
             <div className="product-grid">
