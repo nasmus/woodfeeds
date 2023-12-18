@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
-import Button from "react-bootstrap/esm/Button";
 import { useNavigate, useParams } from "react-router-dom";
 import { Store } from "../../Store";
 import LoadingBox from "../../components/LoadingBox";
@@ -127,19 +126,18 @@ function ProductScreen() {
           <h4>Product Features</h4>
           <ul>
             <li style={{ listStyleType: "square" }}>
-              {" "}
               <div
                 dangerouslySetInnerHTML={{ __html: product.description }}
-              />{" "}
+              />
             </li>
           </ul>
           <div className="button">
             {product.countInStock > 0 && (
               <ListGroup.Item>
                 <div className="d-grid">
-                  <Button onClick={addToCartHandler} variant="primary">
+                  <button className="px-3.5 py-2 rounded-full bg-cyan-500 hover:bg-cyan-600 text-white" onClick={addToCartHandler} >
                     Add To Cart
-                  </Button>
+                  </button>
                 </div>
               </ListGroup.Item>
             )}

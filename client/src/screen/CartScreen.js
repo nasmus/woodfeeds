@@ -1,16 +1,16 @@
+import axios from "axios";
 import React, { useContext } from "react";
-import Button from "react-bootstrap/esm/Button";
 import Card from "react-bootstrap/Card";
+import Button from "react-bootstrap/esm/Button";
 import Col from "react-bootstrap/esm/Col";
+import Container from "react-bootstrap/esm/Container";
 import ListGroup from "react-bootstrap/esm/ListGroup";
 import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
 import Row from "react-bootstrap/esm/Row";
 import { Link, useNavigate } from "react-router-dom";
-import MessageBox from "../components/MessageBox";
 import { Store } from "../Store";
-import axios from "axios";
+import MessageBox from "../components/MessageBox";
 import "../css/CartScreen.css";
-import Container from "react-bootstrap/esm/Container";
 
 function CartScreen() {
   const navigate = useNavigate();
@@ -126,14 +126,13 @@ function CartScreen() {
                   </ListGroupItem>
                   <ListGroupItem>
                     <div className="d-grid">
-                      <Button
-                        type="button"
-                        variant="primary"
+                      <button
+                        className="px-4 py-2.5 text-white bg-cyan-500 hover:bg-cyan-600 rounded-full"
                         onClick={checkOutHandler}
                         disabled={cartItems.length === 0}
                       >
                         Process To Checkout
-                      </Button>
+                      </button>
                     </div>
                   </ListGroupItem>
                 </ListGroup>

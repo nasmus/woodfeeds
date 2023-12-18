@@ -1,9 +1,9 @@
-import React, { useContext, useState, useEffect } from "react";
 import { Rating } from "@mui/material";
-import { useNavigate } from "react-router-dom";
-import { Store } from "../../Store";
-import { toast } from "react-toastify";
 import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { Store } from "../../Store";
 
 function RatingSubmit(props) {
   const navigate = useNavigate();
@@ -85,7 +85,7 @@ function RatingSubmit(props) {
               <div className="flex items-center justify-between px-3 py-2 border-t ">
                 <button
                   type="submit"
-                  className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-blue-500 rounded-lg focus:ring-4 focus:ring-blue-200  hover:bg-blue-600"
+                  className="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-cyan-500 rounded-lg focus:ring-4 focus:ring-blue-200  hover:bg-cyan-600"
                 >
                   Post comment
                 </button>

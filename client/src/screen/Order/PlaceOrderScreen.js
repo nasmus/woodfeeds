@@ -1,7 +1,6 @@
 import Axios from "axios";
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import Card from "react-bootstrap/Card";
-import Button from "react-bootstrap/esm/Button";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
 import ListGroup from "react-bootstrap/esm/ListGroup";
@@ -119,15 +118,9 @@ function PlaceOrderScreen() {
                   {cart.shippingAddress.city},{cart.shippingAddress.distric}
                 </Card.Text>
                 <Link
-                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300"
                   to="/shipping"
                 >
-                  {/* <button
-                    type="button"
-                    class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    Small
-                  </button> */}
                   Edit
                 </Link>
               </Card.Body>
@@ -140,7 +133,7 @@ function PlaceOrderScreen() {
                   <strong>Method:</strong> {cart.paymentMethod}
                 </Card.Text>
                 <Link
-                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300"
                   to="/payment"
                 >
                   Edit
@@ -182,7 +175,7 @@ function PlaceOrderScreen() {
                   ))}
                 </ListGroup>
                 <Link
-                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300"
                   to="/cart"
                 >
                   Edit
@@ -225,14 +218,14 @@ function PlaceOrderScreen() {
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <div className="d-grid">
-                      <Button
+                      <button
                         type="button"
-                        variant="warning"
                         onClick={placeOrderHandler}
                         disabled={cart.cartItems.length === 0}
+                        className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full"
                       >
                         Place Order
-                      </Button>
+                      </button>
                     </div>
                     {loading && <LoadingBox></LoadingBox>}
                   </ListGroup.Item>

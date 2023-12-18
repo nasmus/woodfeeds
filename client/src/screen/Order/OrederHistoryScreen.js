@@ -1,11 +1,10 @@
 import axios from "axios";
 import React, { useContext, useEffect, useReducer } from "react";
-import Button from "react-bootstrap/esm/Button";
 import Container from "react-bootstrap/esm/Container";
 import { useNavigate } from "react-router-dom";
+import { Store } from "../../Store";
 import LoadingBox from "../../components/LoadingBox";
 import MessageBox from "../../components/MessageBox";
-import { Store } from "../../Store";
 import { getError } from "../../utils";
 
 const reducer = (state, action) => {
@@ -83,15 +82,16 @@ export default function OrderHistoryScreen() {
                   </td> */}
                   <td>{order.orderItems.isDelivered}</td>
                   <td>
-                    <Button
+                    <button
                       type="button"
-                      variant="light"
+                      
                       onClick={() => {
                         navigate(`/order/${order._id}`);
                       }}
+                      className="px-3 py-2.5 bg-cyan-500 hover:bg-cyan-600 rounded-lg text-white"
                     >
                       Details
-                    </Button>
+                    </button>
                   </td>
                 </tr>
               ))}
