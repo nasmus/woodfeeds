@@ -1,16 +1,16 @@
 import Axios from "axios";
 import React, { useContext, useEffect, useReducer, useState } from "react";
-import Row from "react-bootstrap/esm/Row";
-import Col from "react-bootstrap/esm/Col";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/esm/Button";
+import Col from "react-bootstrap/esm/Col";
+import Container from "react-bootstrap/esm/Container";
+import ListGroup from "react-bootstrap/esm/ListGroup";
+import Row from "react-bootstrap/esm/Row";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import ListGroup from "react-bootstrap/esm/ListGroup";
 import { Store } from "../../Store";
-import Container from "react-bootstrap/esm/Container";
-import { getError } from "../../utils";
 import LoadingBox from "../../components/LoadingBox";
+import { getError } from "../../utils";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -118,7 +118,16 @@ function PlaceOrderScreen() {
                   <strong>Address:</strong> {cart.shippingAddress.address},
                   {cart.shippingAddress.city},{cart.shippingAddress.distric}
                 </Card.Text>
-                <Link className="no-underline" to="/shipping">
+                <Link
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  to="/shipping"
+                >
+                  {/* <button
+                    type="button"
+                    class="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  >
+                    Small
+                  </button> */}
                   Edit
                 </Link>
               </Card.Body>
@@ -130,7 +139,10 @@ function PlaceOrderScreen() {
                 <Card.Text>
                   <strong>Method:</strong> {cart.paymentMethod}
                 </Card.Text>
-                <Link className="no-underline" to="/payment">
+                <Link
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  to="/payment"
+                >
                   Edit
                 </Link>
               </Card.Body>
@@ -142,29 +154,37 @@ function PlaceOrderScreen() {
                 <ListGroup variant="flush">
                   {cart.cartItems.map((item) => (
                     <ListGroup.Item key={item._id}>
-                      <Row className="align-items-center">
-                        <Col md={6}>
-                          <img
-                            src={`/images/${item.image}`}
-                            alt={item.name}
-                            className="h-20"
-                          ></img>{" "}
-                          <Link
-                            className="no-underline"
-                            to={`/product/${item.slug}`}
-                          >
-                            {item.name}
-                          </Link>
+                      <Row className="align-items-center ">
+                        <Col xs={6} md={6}>
+                          <div className="flex lg:w-[90%]">
+                            <img
+                              style={{ height: "60px" }}
+                              src={`/images/${item.image}`}
+                              alt={item.name}
+                              className="img-fluid rounded img-thumbnail "
+                            ></img>{" "}
+                            <Link
+                              className="no-underline pl-1"
+                              to={`/product/${item.slug}`}
+                            >
+                              {item.name.slice(0, 35)}...
+                            </Link>
+                          </div>
                         </Col>
-                        <Col md={3}>
+                        <Col xs={3} md={3}>
                           <span>{item.quantity}</span>
                         </Col>
-                        <Col md={3}>${item.price}</Col>
+                        <Col xs={3} md={3}>
+                          ${item.price}
+                        </Col>
                       </Row>
                     </ListGroup.Item>
                   ))}
                 </ListGroup>
-                <Link className="no-underline" to="/cart">
+                <Link
+                  className="no-underline px-2 py-1.5 text-xs font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300"
+                  to="/cart"
+                >
                   Edit
                 </Link>
               </Card.Body>

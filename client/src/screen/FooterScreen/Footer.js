@@ -1,15 +1,15 @@
-import React from "react";
 import {
   FacebookTwoTone,
   Instagram,
   SubscriptionsTwoTone,
 } from "@mui/icons-material";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function Footer() {
   return (
     <div className="text-white bg-orange-900">
-      <div className="px-6 py-2 md:flex md:justify-between md:px-20 md:py-9 md:items-start">
+      <div className="px-6 py-4 md:flex md:justify-between md:px-20 md:py-9 md:items-start">
         <div className="max-w-sm my-6 md:my-0">
           <h1 className="text-5xl font-bold py-1 text-white">LOGO</h1>
           <p className="py-4">
@@ -63,7 +63,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-[#2b3242] text-slate-400 flex items-center justify-center p-6">
+      <div className="bg-[#2b3242] text-slate-400 flex items-center justify-center p-2.5">
         <p>2023 E-valy.com Limited. All rights reserved.</p>
       </div>
     </div>
