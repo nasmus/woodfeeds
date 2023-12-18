@@ -1,6 +1,7 @@
-import React, { useEffect, useReducer } from "react";
 import axios from "axios";
+import React, { useEffect, useReducer } from "react";
 import { Link } from "react-router-dom";
+import productImg from "../../css/category-80.jpg";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -59,7 +60,12 @@ function CategoryHeader() {
                     {category && category.map((item, index) => {
                       return (
                         <li key={index} className="dropdown position-static">
-                          <Link to={`/category/${item._id}`}>{item.name}</Link>
+                          <Link to={`/category/${item._id}`}>
+                            <div className="flex flex-col items-center">
+                              <img src={productImg} alt="category-img" className='h-16 w-16' />
+                              {item.name}
+                            </div>
+                          </Link>
                           {item.children.length > 0 ? (
                             <ul style={{ width: "20%" }} className="sub-menu">
                               {item.children.map((element, index) => {
