@@ -1,12 +1,11 @@
-import React, { useContext, useReducer, useState } from 'react'
+import React, { useContext, useReducer, useState } from 'react';
 //import { useNavigate } from 'react-router-dom';
 
-import { Store } from '../Store';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/esm/Button';
-import { getError } from '../utils';
-import { toast } from 'react-toastify';
 import axios from 'axios';
+import Form from 'react-bootstrap/Form';
+import { toast } from 'react-toastify';
+import { Store } from '../Store';
+import { getError } from '../utils';
 
 const reducer = (state, action) => {
     switch (action.type) {
@@ -108,7 +107,7 @@ const reducer = (state, action) => {
             />
           </Form.Group>
           <div className="mb-3">
-            <Button type="submit">Update</Button>
+            <button className="px-3 py-2.5 text-white bg-cyan-500 hover:bg-cyan-600 rounded-lg"  type="submit">Update</button>
           </div>
         </form>
       </div>

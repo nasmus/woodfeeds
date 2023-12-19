@@ -20,10 +20,10 @@ function Footer() {
         <div className="my-8 md:my-0">
           <h3 className="font-semibold text-xl py-3 text-white">Contact Us</h3>
           <p>
-            House #8, Road # 14,Dhanmondi,
-            <br /> Dhaka-1209.
+            Kazipur
+            <br /> Sirajganj-6710.
             <br />
-            Email: support@e-valy.com
+            Email: support@woodfeeds.com
           </p>
           <p></p>
           <p className="pt-2"></p>
@@ -34,37 +34,46 @@ function Footer() {
           </h3>
           <div className="text-left">
             <Link className=" no-underline text-white " to="#">
-              <div>Your Account</div>
-            </Link>
-            <Link className=" no-underline  text-white" to="#">
-              <div>Your Order</div>
+              <div className="hover:text-slate-200">About US</div>
             </Link>
             <Link className=" no-underline text-white " to="#">
-              <div>Terms & Conditions</div>
+              <div className="hover:text-slate-200">Terms & Conditions</div>
             </Link>
             <Link className=" no-underline text-white " to="#">
-              <div>Return & Refund Policy</div>
+              <div className="hover:text-slate-200">Return & Refund Policy</div>
             </Link>
             <Link className=" no-underline text-white " to="#">
-              <div>FAQ</div>
+              <div className="hover:text-slate-200"> FAQ</div>
             </Link>
           </div>
         </div>
         <div className="my-8 md:my-0 flex flex-col items-start md:justify-center md:items-center">
-          <h3 className="font-semibold text-xl py-3 text-white">
-            MoneybagGo App
-          </h3>
-          <div className="flex" >
-            <div className="flex items-center ">
-              <FacebookTwoTone className="mx-2 cursor-pointer" />
-              <Instagram className="mx-2 cursor-pointer" />
-              <SubscriptionsTwoTone className="mx-2 cursor-pointer" />
+          <h3 className="font-semibold text-xl py-3 text-white">WoodFeeds</h3>
+          <div className="flex">
+            <div className="flex items-center">
+              <Link
+                className=" !text-white"
+                target="_blank"
+                to="https://www.facebook.com/WoodFeeds1"
+              >
+                <FacebookTwoTone className="mx-2 hover:text-slate-300 cursor-pointer" />
+              </Link>
+              <Link
+                className=" !text-white"
+                target="_blank"
+                to="https://www.instagram.com/woodfeeds/"
+              >
+                <Instagram className="mx-2  hover:text-slate-300  cursor-pointer" />{" "}
+              </Link>
+              <Link className=" !text-white" target="_blank" to="#">
+                <SubscriptionsTwoTone className="mx-2  hover:text-slate-300  cursor-pointer" />
+              </Link>
             </div>
           </div>
         </div>
       </div>
       <div className="bg-[#2b3242] text-slate-400 flex items-center justify-center p-2.5">
-        <p>2023 E-valy.com Limited. All rights reserved.</p>
+        <p>©{new Date().getFullYear()} woodfeeds.com . All rights reserved.</p>
       </div>
     </div>
   );

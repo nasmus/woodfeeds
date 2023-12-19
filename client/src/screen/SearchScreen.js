@@ -1,17 +1,17 @@
 import axios from "axios";
 import React, { useEffect, useReducer, useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { toast } from "react-toastify";
-import { getError } from "../utils";
-import "../css/Product.css";
-import Rating from "../components/Review/Rating";
+import Button from "react-bootstrap/esm/Button";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
-import Button from "react-bootstrap/esm/Button";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
-import MessageBox from "../components/MessageBox";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import LoadingBox from "../components/LoadingBox";
+import MessageBox from "../components/MessageBox";
 import Product from "../components/Product";
+import Rating from "../components/Review/Rating";
+import "../css/Product.css";
+import { getError } from "../utils";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -156,7 +156,7 @@ export default function SearchScreen() {
               </ul>
             </div> */}
             <div className="search_manu_bar">
-              <div >
+              <div>
                 <h3>Price</h3>
                 <ul>
                   <li>
@@ -239,20 +239,26 @@ export default function SearchScreen() {
                     </div>
                   </Col>
                   <Col className="text-end">
-                    Sort by{" "}
+                    <span className="me-2">Sort By</span>
+                    {/* <select
+                      value={order}
+                      onChange={(e) => {
+                        navigate(getFilterUrl({ order: e.target.value }));
+                      }}
+                      className="border border-black"
+                    > */}
                     <select
                       value={order}
                       onChange={(e) => {
                         navigate(getFilterUrl({ order: e.target.value }));
                       }}
-                      className="border-4 border-yallow-300"
+                      className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 inline-block p-2.5"
                     >
                       <option value="newest">Newest Arrivals</option>
                       <option value="lowest">Price: Low to High</option>
                       <option value="highest">Price: High to Low</option>
                       <option value="toprated">Avg. Customer Reviews</option>
                     </select>
-                    
                   </Col>
                 </Row>
                 {products.length === 0 && (
@@ -274,12 +280,16 @@ export default function SearchScreen() {
                         search: getFilterUrl({ page: x + 1 }).substring(7),
                       }}
                     >
-                      <Button
-                        className={Number(page) === x + 1 ? "text-bold" : ""}
+                      <button
+                        className={
+                          Number(page) === x + 1
+                            ? "text-bold bg-cyan-500 p-2.5 rounded-lg text-white hover:bg-cyan-600"
+                            : "bg-cyan-500 p-2.5 rounded-lg text-white hover:bg-cyan-600"
+                        }
                         variant="light"
                       >
                         {x + 1}
-                      </Button>
+                      </button>
                     </LinkContainer>
                   ))}
                 </div>

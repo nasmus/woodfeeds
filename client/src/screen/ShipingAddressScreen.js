@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Store } from "../Store";
 import "../css/ShippingAddress.css";
@@ -245,7 +245,7 @@ function ShipingAddressScreen() {
             </div>
           </div>
         </div>
-        <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">
           Submit address
         </button>
       </div>
