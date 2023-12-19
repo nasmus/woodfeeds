@@ -46,13 +46,13 @@ function BannerSidebar() {
             className={` border slider-image ${currentIndex === currentIndex ? 'active' : ''}`}
           />
         </div> */}
-        <div class="grid grid-cols-3 gap-4 p-4">
+        <div class="flex gap-3 p-4">
           <img
             class="col-span-2 object-cover w-full h-auto"
             src="https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26"
             alt="Big"
           />
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <img
               class="object-cover w-full h-auto"
               src="https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26"
