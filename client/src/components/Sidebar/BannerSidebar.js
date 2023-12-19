@@ -13,20 +13,17 @@ function BannerSidebar() {
     // Add your banner image URLs here
   ];
 
-//   useEffect(() => {
-//     const interval = setInterval(() => {
-//       setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
-//     }, 5000);
+  //   useEffect(() => {
+  //     const interval = setInterval(() => {
+  //       setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
+  //     }, 5000);
 
-//     return () => clearInterval(interval);
-//   }, [banners.length]);
-
-
+  //     return () => clearInterval(interval);
+  //   }, [banners.length]);
 
   const nextBanner = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % banners.length);
   };
-
 
   const handleDotClick = (index) => {
     setCurrentIndex(index);
@@ -40,17 +37,34 @@ function BannerSidebar() {
   }, []);
 
   return (
-    <div  className="banner-slider">
+    <div className="banner-slider">
       <div>
-        <div className="image">
+        {/* <div className="image">
           <img 
           src={banners[currentIndex]} 
           alt={`Slide ${currentIndex + 1}`}
             className={` border slider-image ${currentIndex === currentIndex ? 'active' : ''}`}
           />
+        </div> */}
+        <div class="grid grid-cols-3 gap-4 p-4">
+          <img
+            class="col-span-2 object-cover w-full h-auto"
+            src="https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26"
+            alt="Big"
+          />
+          <div className="flex flex-col gap-2">
+            <img
+              class="object-cover w-full h-auto"
+              src="https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26"
+              alt="Small1"
+            />
+            <img
+              class="object-cover w-full h-auto"
+              src="https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26"
+              alt="Small"
+            />
+          </div>
         </div>
-        
-        
       </div>
       {/* <div className="slider-dots">
         {banners.map((_, index) => (

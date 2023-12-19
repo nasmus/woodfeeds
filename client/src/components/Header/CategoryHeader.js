@@ -62,7 +62,7 @@ function CategoryHeader() {
                         <li key={index} className="dropdown position-static">
                           <Link to={`/category/${item._id}`}>
                             <div className="flex flex-col items-center">
-                              <img src={productImg} alt="category-img" className='h-16 w-16' />
+                              <img src="https://rukminim1.flixcart.com/flap/96/96/image/22fddf3c7da4c4f4.png?q=100" alt="category-img" className='h-16 w-16' />
                               {item.name}
                             </div>
                           </Link>
