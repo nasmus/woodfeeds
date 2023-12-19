@@ -6,7 +6,7 @@ function ShipingAddressScreen() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     userInfo,
-    cart: { shippingAddress, paymentMethod },
+    cart: { shippingAddress, paymentMethod, cartItems },
   } = state;
   const navigate = useNavigate();
 
@@ -200,11 +200,11 @@ function ShipingAddressScreen() {
           <h3>Order Summery</h3>
           <div className="flex justify-between">
             <h5>Total Item</h5>
-            <h5>5</h5>
+            <h5>{cartItems.reduce((a, c) => a + c.quantity, 0)}</h5>
           </div>
           <div className="flex justify-between">
             <h5>Total Price</h5>
-            <h5>756</h5>
+            <h5>{cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</h5>
           </div>
         </div>
         <div className=" m-2">
