@@ -222,7 +222,7 @@ function PlaceOrderScreen() {
                         type="button"
                         onClick={placeOrderHandler}
                         disabled={cart.cartItems.length === 0}
-                        className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full"
+                        className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-md"
                       >
                         Place Order
                       </button>

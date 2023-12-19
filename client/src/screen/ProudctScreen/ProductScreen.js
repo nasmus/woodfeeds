@@ -135,7 +135,7 @@ function ProductScreen() {
             {product.countInStock > 0 && (
               <ListGroup.Item>
                 <div className="d-grid">
-                  <button className="px-3.5 py-2 rounded-full bg-cyan-500 hover:bg-cyan-600 text-white" onClick={addToCartHandler} >
+                  <button className="px-3.5 py-2 rounded-md bg-cyan-500 hover:bg-cyan-600 text-white" onClick={addToCartHandler} >
                     Add To Cart
                   </button>
                 </div>
