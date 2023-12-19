@@ -3,13 +3,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/esm/Container';
 import '../css/CheckOut.css';
-import {
-  MDBCardBody,
-  MDBCol,
-  MDBContainer,
-  MDBIcon,
-  MDBRow,
-} from "mdb-react-ui-kit";
+// import {
+//   MDBCardBody,
+//   MDBCol,
+//   MDBContainer,
+//   MDBIcon,
+//   MDBRow,
+// } from "mdb-react-ui-kit";
 
 function CheckOut(props) {
   return (
