@@ -48,18 +48,18 @@ function BannerSidebar() {
         </div> */}
         <div class="grid grid-cols-3 gap-4 p-4">
           <img
-            class="col-span-2 object-cover w-full h-auto"
+            class="col-span-2 object-cover w-full h-auto rounded-l-xl"
             src="https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26"
             alt="Big"
           />
           <div className="flex flex-col gap-2">
             <img
-              class="object-cover w-full h-auto"
+              class="object-cover w-full h-auto rounded-tr-xl"
               src="https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26"
               alt="Small1"
             />
             <img
-              class="object-cover w-full h-auto"
+              class="object-cover w-full h-auto rounded-br-xl"
               src="https://media.e-valy.com/cms/banners/a71ef5d2-45ed-46c5-b2ab-a9071e8efe26"
               alt="Small"
             />
