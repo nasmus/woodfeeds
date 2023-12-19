@@ -5,13 +5,14 @@ import {
 } from "@mui/icons-material";
 import React from "react";
 import { Link } from "react-router-dom";
+import logo from "../../css/logo.png";
 
 function Footer() {
   return (
-    <div className="text-white bg-orange-900">
-      <div className="px-6 py-4 md:flex md:justify-between md:px-20 md:py-9 md:items-start">
+    <div className="text-white bg-gradient-to-r from-slate-900 to-slate-700">
+      <div className="px-6 py-4 md:flex md:justify-between md:px-32 md:py-9 md:items-start">
         <div className="max-w-sm my-6 md:my-0">
-          <h1 className="text-5xl font-bold py-1 text-white">LOGO</h1>
+          <img src={logo} className="w-60" alt="Site Logo" />
           <p className="py-4">
             Largest product search engine, maximum categorized online shopping
             mall and quickest home delivery system.
@@ -72,7 +73,7 @@ function Footer() {
           </div>
         </div>
       </div>
-      <div className="bg-[#2b3242] text-slate-400 flex items-center justify-center p-2.5">
+      <div className="bg-gradient-to-r from-slate-800 to-slate-700 text-slate-400 flex items-center justify-center p-2.5">
         <p>©{new Date().getFullYear()} woodfeeds.com . All rights reserved.</p>
       </div>
     </div>
