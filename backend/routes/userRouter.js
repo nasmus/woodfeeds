@@ -1,11 +1,10 @@
+import bcrypt from 'bcryptjs';
 import express from "express";
 import expressAsyncHandler from 'express-async-handler';
-import User from "../models/userModel.js";
-import bcrypt from 'bcryptjs';
-import jwt from 'jsonwebtoken'
+import jwt from 'jsonwebtoken';
 import mailgun from "mailgun.js";
-import { generateToken, isAuth } from '../utils.js'
-import { baseUrl } from "../utils.js";
+import User from "../models/userModel.js";
+import { baseUrl, generateToken, isAuth } from '../utils.js';
 const userRouter = express.Router();
 
 userRouter.post(
@@ -25,7 +24,7 @@ userRouter.post(
                 })
             }
         }
-        //res.status(401).send({message:'invalid email or password'});
+        res.status(401).send({message:'Invalid email or password'});
     })
 )
 
