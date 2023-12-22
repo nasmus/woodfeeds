@@ -145,18 +145,7 @@ function Header() {
             </div>
 
             <div className="col">
-              <div className="header-search">
-                <form className="ec-btn-group-form" action="#">
-                  <input
-                    className="form-control ec-search-bar"
-                    placeholder="Search products..."
-                    type="text"
-                  />
-                  <button class="submit" type="submit">
-                    <i className="fi-rr-search"></i>
-                  </button>
-                </form>
-              </div>
+            {<SearchBox />}
             </div>
           </div>
         </div>

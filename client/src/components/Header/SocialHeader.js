@@ -8,6 +8,9 @@ import { Link } from "react-router-dom";
 import { Store } from "../../Store";
 import "../../css/Navbar.css";
 import Accordion from "../Sidebar/Accordion";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import LinkContainer from "react-router-bootstrap/LinkContainer";
+import { ExpandMore, Person } from "@mui/icons-material";
 
 function SocialHeader() {
   const [category, setCategory] = useState([]);
@@ -43,14 +46,38 @@ function SocialHeader() {
       >
         <div className="ec-header-bottons">
           <div className="ec-header-user dropdown">
-            <Link
-              to="/signin"
-              style={{ textDecoration: "none" }}
-              className="dropdown-toggle"
-              data-bs-toggle="dropdown"
-            >
-              <i className="fi-rr-user"></i>
-            </Link>
+            {userInfo ? (
+              <NavDropdown
+                title={
+                  <i className="fi-rr-user"></i>
+                }
+                x
+                id="basic-nav-dropdown"
+              >
+                <LinkContainer to="/profile">
+                  <NavDropdown.Item>User Profoile</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/orderhistory">
+                  <NavDropdown.Item>Order history</NavDropdown.Item>
+                </LinkContainer>
+                <LinkContainer to="/reset_password">
+                  <NavDropdown.Item>Password Reset</NavDropdown.Item>
+                </LinkContainer>
+                <NavDropdown.Divider />
+                <Link className="dropdown-item" to="/" onClick={signOutHandler}>
+                  Sign Out
+                </Link>
+              </NavDropdown>
+            ) : (
+              <Link
+                to="/signin"
+                style={{ textDecoration: "none" }}
+                className="dropdown-toggle"
+                data-bs-toggle="dropdown"
+              >
+                <i className="fi-rr-user"></i>
+              </Link>
+            )}
           </div>
 
           <Link to="/cart" className="ec-header-btn ec-side-toggle">
@@ -139,33 +166,35 @@ function SocialHeader() {
             </div>
             <div className=" pb-3 pl-2 ">
               {userInfo ? (
-              <section className=" bottom-0 text-slate-400">
-                <div className="flex ">
-                  <Settings
-                    fontSize="small"
-                    className={`mt-2 text-slate-400 `}
-                  />
-                  <button className="w-full flex items-center justify-between p-2  rounded-md focus:outline-none">
-                    <span className={`text-sm font-medium  `}>Setting</span>
-                  </button>
-                </div>
-                <Link
-                  className=" no-underline text-slate-400 hover:text-slate-400 "
-                  to="/"
-                  onClick={signOutHandler}
-                >
+                <section className=" bottom-0 text-slate-400">
                   <div className="flex ">
-                    <ExitToAppIcon
+                    <Settings
                       fontSize="small"
                       className={`mt-2 text-slate-400 `}
                     />
                     <button className="w-full flex items-center justify-between p-2  rounded-md focus:outline-none">
-                      <span className={`text-sm font-medium`}>Logout</span>
+                      <span className={`text-sm font-medium  `}>Setting</span>
                     </button>
                   </div>
-                </Link>
-              </section>
-              ) : ( '' ) }
+                  <Link
+                    className=" no-underline text-slate-400 hover:text-slate-400 "
+                    to="/"
+                    onClick={signOutHandler}
+                  >
+                    <div className="flex ">
+                      <ExitToAppIcon
+                        fontSize="small"
+                        className={`mt-2 text-slate-400 `}
+                      />
+                      <button className="w-full flex items-center justify-between p-2  rounded-md focus:outline-none">
+                        <span className={`text-sm font-medium`}>Logout</span>
+                      </button>
+                    </div>
+                  </Link>
+                </section>
+              ) : (
+                ""
+              )}
             </div>
           </div>
         </div>
