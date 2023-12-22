@@ -11,7 +11,7 @@ function Footer() {
   return (
     <div className="text-white bg-gradient-to-r from-slate-900 to-slate-700">
       <div className="px-6 py-4 md:flex md:justify-between md:px-32 md:py-9 md:items-start">
-        <div className="max-w-sm my-6 md:my-0">
+        <div className="hidden lg:block lg:max-w-sm lg:my-6">
           <img src={logo} className="w-60" alt="Site Logo" />
           <p className="py-4">
             Largest product search engine, maximum categorized online shopping
