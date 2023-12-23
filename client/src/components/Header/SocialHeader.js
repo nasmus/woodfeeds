@@ -10,7 +10,6 @@ import "../../css/Navbar.css";
 import Accordion from "../Sidebar/Accordion";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
-import { ExpandMore, Person } from "@mui/icons-material";
 
 function SocialHeader() {
   const [category, setCategory] = useState([]);
