@@ -48,9 +48,7 @@ function ShipingAddressScreen() {
   const [address, setAddress] = useState(shippingAddress.address || "");
   const [city, setCity] = useState(shippingAddress.city || "");
   const [distric, setDistric] = useState(shippingAddress.distric || "");
-  const [phoneNumber, setPhoneNumber] = useState(
-    shippingAddress.phoneNumber || ""
-  );
+  const [phoneNumber, setPhoneNumber] = useState(shippingAddress.phoneNumber || "");
 
   // Payment method
 

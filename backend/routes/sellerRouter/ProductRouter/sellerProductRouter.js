@@ -3,7 +3,7 @@ import expressAsyncHandler from 'express-async-handler';
 import Product from '../../../models/productModel.js';
 import { isAdmin, isAuth,isSeller} from '../../../utils.js';
 
- const sellerProductRouter = express.Router()
+const sellerProductRouter = express.Router()
 
 sellerProductRouter.get(
     '/:id',

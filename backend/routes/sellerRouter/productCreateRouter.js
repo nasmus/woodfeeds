@@ -44,6 +44,11 @@ productCreateRouter.post(
       countInStock,
       rating,
       numReviews,
+      hight,
+      width,
+      thickness,
+      color,
+      productMaterials,
     } = req.body;
     //const image = req.file.filename;
     const multipleImage = req.files.map((file) => file.filename);
@@ -61,7 +66,12 @@ productCreateRouter.post(
       rating,
       numReviews,
       createdBy: req.user._id,
-      multipleImage
+      multipleImage,
+      hight,
+      width,
+      thickness,
+      color,
+      productMaterials,
     });
     product.save((error, product) => {
       if (error) {

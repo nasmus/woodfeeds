@@ -127,7 +127,7 @@ function CartScreen() {
                   <ListGroupItem>
                     <div className="d-grid">
                       <button
-                        className="px-4 py-2.5 text-white bg-cyan-500 hover:bg-cyan-600 rounded-full"
+                        className="px-4 py-2.5 text-white bg-cyan-500 hover:bg-cyan-600 rounded-lg"
                         onClick={checkOutHandler}
                         disabled={cartItems.length === 0}
                       >

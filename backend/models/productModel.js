@@ -11,13 +11,11 @@ const productSchema = new mongoose.Schema(
     description: { type: String, required: true },
     price: { type: Number, required: true },
     countInStock: { type: Number, required: true },
-    // productFeatures: {
-    //   hight: { type: String, required: true },
-    //   width: { type: String, required: true },
-    //   thickness: { type: String, required: false },
-    //   color: { type: String, required: true },
-    //   productMaterials: { type: String, required:true}
-    // },
+    hight: { type: String, required: false },
+    width: { type: String, required: false },
+    thickness: { type: String, required: false },
+    color: { type: String, required: false },
+    productMaterials: { type: String, required:false},
     rating: { type: Number },
     numReviews: { type: Number },
     reviews: [
