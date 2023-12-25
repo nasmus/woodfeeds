@@ -43,6 +43,14 @@ function Category() {
       >
         Update Category
       </Button>
+      <Button
+        variant="contained"
+        onClick={() => {
+          navigate(`/category/category_image_add`);
+        }}
+      >
+        Category Image Add
+      </Button>
       <Button variant="outlined" startIcon={<DeleteIcon />}>
         Delete
       </Button>

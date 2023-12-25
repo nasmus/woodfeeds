@@ -3,22 +3,19 @@ import expressAsyncHandler from "express-async-handler";
 import Category from '../../../models/category.js'
 import { isAuth,isAdmin } from "../../../utils.js";
 import path from "path";
-import shortId from "shortid";
-import slugify from "slugify";
+import multer from "multer";
+
 
 const categoryApi = express.Router()
 
-// const storage = multer.diskStorage({
-//     destination: "./uploads/images",
-//     filename: function (req, file, cb) {
-//       cb(
-//         null,
-//         file.fieldname + "-" + Date.now() + path.extname(file.originalname)
-//       );
-//     },
-//   });
+const storage = multer.diskStorage({
+    destination: './uploads/',
+    filename: (req, file, cb) => {
+      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+    },
+  });
   
-//   const upload = multer({ storage: storage });
+  const upload = multer({ storage: storage });
 
 function createAddCategories(categories, parentId=null) {
     const categoryList =[];
@@ -35,6 +32,7 @@ function createAddCategories(categories, parentId=null) {
             slug: cate.slug,
             parentId: cate.parentId,
             type:cate.type,
+            categoryImage:cate.categoryImage,
             children: createAddCategories(categories, cate._id)
         })
     }
@@ -61,12 +59,15 @@ categoryApi.post(
     isAuth,
     isAdmin,
     expressAsyncHandler( async(req,res) => {
+        
         const categoryObj = {
             name: req.body.name,
             slug: req.body.name,//`${slugify(req.body.name)}-${shortId.generate()}`
-            parentId: req.body.parentId
+            parentId: req.body.parentId,
+            
         }
-    
+        
+        
         // if(req.body.parentId){
         //     categoryObj.parentId = req.body.parentId;
         // }
@@ -117,6 +118,27 @@ categoryApi.post(
     }
     })
 )
+
+//category image upload
+
+categoryApi.post('/categories/:categoryId/upload', upload.single('image'), async (req, res) => {
+    try {
+      const categoryId = req.params.categoryId;
+      const category = await Category.findById(categoryId);
+  
+      if (!category) {
+        return res.status(404).json({ error: 'Category not found' });
+      }
+  
+      category.image = req.file.filename;
+      await category.save();
+  
+      res.json({ message: 'Image uploaded successfully' });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 
 categoryApi.post(
     '/delete',

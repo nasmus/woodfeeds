@@ -125,10 +125,25 @@ function ProductScreen() {
           <h5>${product.price}</h5>
           <h4>Product Features</h4>
           <ul>
-            <li style={{ listStyleType: "square" }}>
+            {/* <li style={{ listStyleType: "square" }}>
               <div
                 dangerouslySetInnerHTML={{ __html: product.description }}
               />
+            </li> */}
+            <li style={{ listStyleType: "square" }}>
+             Product Hight <b>{product.hight}</b> 
+            </li>
+            <li style={{ listStyleType: "square" }}>
+            Product width <b>{product.width}</b>
+            </li>
+            <li style={{ listStyleType: "square" }}>
+              Thickness <b>{product.thickness}</b>
+            </li>
+            <li style={{ listStyleType: "square" }}>
+              Product Color <b>{product.color}</b>
+            </li>
+            <li style={{ listStyleType: "square" }}>
+              Product Materials <b>{product.productMaterials}</b>
             </li>
           </ul>
           <div className="button">
@@ -147,15 +162,7 @@ function ProductScreen() {
       <div className="product_description mx-8 lg:my-2 my-4">
         <h3>Description</h3>
         <p>
-          It is a long established fact that a reader will be distracted by the
-          readable content of a page when looking at its layout. The point of
-          using Lorem Ipsum is that it has a more-or-less normal distribution of
-          letters, as opposed to using 'Content here, content here', making it
-          look like readable English. Many desktop publishing packages and web
-          page editors now use Lorem Ipsum as their default model text, and a
-          search for 'lorem ipsum' will uncover many web sites still in their
-          infancy. Various versions have evolved over the years, sometimes by
-          accident, sometimes on purpose (injected humour and the like.
+        product.description
         </p>
       </div>
       <div className="product_suggest">

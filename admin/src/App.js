@@ -12,6 +12,7 @@ import ProdcutUpload from './AdminScreen/ProdcutUpload';
 import OrderDetails from './AdminScreen/OrderDetails';
 import ProductDetailsScreen from './AdminScreen/ProductDetailsScreen';
 import EditProductScreen from './AdminScreen/EditProductScreen';
+import CategoryImageAdd from './AdminScreen/Category/CategoryImageAdd';
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
         <Route path='/alluserlist' element={ <AllUserListScreen /> } />
         <Route path='/category' element={ <Category /> } />
         <Route path='/category/addcategory' element={ <CreateCategory /> } />
+        <Route path='/category/category_image_add' element={ <CategoryImageAdd /> } />
         <Route path='/product-upload' element={ <ProdcutUpload /> } />
         <Route path='/orderdetails/:id' element={ <OrderDetails /> } />
         <Route path='/productdetails/:id' element={ <ProductDetailsScreen /> } />
