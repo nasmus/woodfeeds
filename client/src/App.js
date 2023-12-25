@@ -57,7 +57,7 @@ function App() {
             <Route path="/shipping" element={<ShipingAddressScreen />} />
             <Route path="/order/:id" element={<OrderScreen />} />
             <Route path="/orderhistory" element={<OrederHistoryScreen />} />
-            <Route path="/category/:id" element={ <CategoryPage /> } />
+            <Route path="/category/:id/:slug" element={ <CategoryPage /> } />
             <Route path="/reset_password/:token" element={ <ResetPassword /> } />
             <Route path="/forgot-password" element={ <SendEmail /> } />
           </Routes>

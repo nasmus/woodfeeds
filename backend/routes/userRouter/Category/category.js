@@ -41,7 +41,7 @@ getCategoryRouter.get(
 )
 
 getCategoryRouter.get(
-    '/:id',
+    '/:id/:slug',
     expressAsyncHandler( async(req,res) => {
         const categoryid = await Product.find({"category":req.params.id})
         if(categoryid){

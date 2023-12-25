@@ -6,16 +6,17 @@ import { useParams } from "react-router-dom";
 function CategoryPage() {
   const [categoryValue, setCategoryValue] = useState([]);
   const param = useParams();
+  
 
   useEffect(() => {
     const fatchData = async () => {
-      const category = await axios.get(`/api/category/${param.id}`);
+      const category = await axios.get(`/api/category/${param.id}/${param.slug}`);
       if (category) {
         setCategoryValue(category.data);
       }
     };
     fatchData();
-  }, [param.id]);
+  }, [param.id,param.slug]);
   return (
     <div>
       <div className="product-grid2">
