@@ -7,6 +7,7 @@ import BannerSidebar from "../components/Sidebar/BannerSidebar";
 import "../css/Product.css";
 import side from "../css/side.png";
 import TopRatedProduct from "./ProudctScreen/TopRatedProduct";
+import CategoryProduct from "./ProudctScreen/CategoryProduct";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -66,6 +67,7 @@ function HomeScreen(props) {
                 <Product product={product}></Product>
               ))}
             </div>
+            <CategoryProduct />
           </>
         )}
       </div>

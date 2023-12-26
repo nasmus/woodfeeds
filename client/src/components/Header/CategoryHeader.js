@@ -60,7 +60,7 @@ function CategoryHeader() {
                     {category && category.map((item, index) => {
                       return (
                         <li key={index} className="dropdown position-static">
-                          <Link to={`/category/${item._id}`}>
+                          <Link to={`/category/${item._id}/${item.slug}`}>
                             <div className="flex flex-col items-center">
                               <img src="https://rukminim1.flixcart.com/flap/96/96/image/22fddf3c7da4c4f4.png?q=100" alt="category-img" className='h-16 w-16' />
                               {item.name}
@@ -71,7 +71,7 @@ function CategoryHeader() {
                               {item.children.map((element, index) => {
                                 return (
                                   <li key={index}>
-                                    <Link to={`/category/${element._id}`}>
+                                    <Link to={`/category/${element._id}/${element.slug}`}>
                                       {element.name}
                                     </Link>
                                   </li>

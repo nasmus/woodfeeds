@@ -9,7 +9,7 @@ import multer from "multer";
 const categoryApi = express.Router()
 
 const storage = multer.diskStorage({
-    destination: './uploads/',
+    destination: './uploads/images',
     filename: (req, file, cb) => {
       cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
     },
