@@ -34,16 +34,16 @@ function Footer() {
             Let Us Help You
           </h3>
           <div className="text-left">
-            <Link className=" no-underline text-white " to="#">
+            <Link className=" no-underline text-white " to="/about-us">
               <div className="hover:text-slate-200">About US</div>
             </Link>
-            <Link className=" no-underline text-white " to="#">
+            <Link className=" no-underline text-white " to="/terms-conditions">
               <div className="hover:text-slate-200">Terms & Conditions</div>
             </Link>
-            <Link className=" no-underline text-white " to="#">
+            <Link className=" no-underline text-white " to="/return-refund">
               <div className="hover:text-slate-200">Return & Refund Policy</div>
             </Link>
-            <Link className=" no-underline text-white " to="#">
+            <Link className=" no-underline text-white " to="/faq">
               <div className="hover:text-slate-200"> FAQ</div>
             </Link>
           </div>
