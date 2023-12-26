@@ -23,7 +23,7 @@ export default function SearchBox() {
             try {
                 const { data } = await axios.get('/api/products');
                 const result = data.filter((rez) => {
-                    return value && rez && rez.name.includes(value)
+                    return value && rez && rez.name.toLowerCase().includes(value)
                 });
                 setSuggestion(result);
                 console.log(suggestion);
