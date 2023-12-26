@@ -101,7 +101,7 @@ function ProductScreen() {
     <div>
       <div className="product_section">
         <div className="images">
-          <img className="main_image" src={`/images/${activeImage}`} alt="" />
+          <img className="main_image max-h-96 object-scale-down" src={`/images/${activeImage}`} alt="" />
           <div className="grid_viev_product">
             {imageValue.length > 0
               ? imageValue.map((image, index) => {
@@ -109,6 +109,7 @@ function ProductScreen() {
                     <img
                       src={`/images/${image}`}
                       alt=""
+                    
                       onClick={() => setActiveImage(image)}
                     />
                   );
@@ -119,8 +120,8 @@ function ProductScreen() {
         <div className="product_content pt-4">
           <h1>{product.name}</h1>
           <p>
-            <Rating rating={product.rating} numReviews={product.numReviews} /> 7
-            reviews | {product.countInStock} Stock
+            <Rating rating={product.rating} numReviews={product.numReviews} />
+            {product.numReviews ? product.numReviews : 0} reviews | {product.countInStock} Stock
           </p>
           <h5>${product.price}</h5>
           <h4>Product Features</h4>
@@ -131,10 +132,10 @@ function ProductScreen() {
               />
             </li> */}
             <li style={{ listStyleType: "square" }}>
-             Product Hight <b>{product.hight}</b> 
+              Product Hight <b>{product.hight}</b>
             </li>
             <li style={{ listStyleType: "square" }}>
-            Product width <b>{product.width}</b>
+              Product width <b>{product.width}</b>
             </li>
             <li style={{ listStyleType: "square" }}>
               Thickness <b>{product.thickness}</b>
@@ -150,7 +151,10 @@ function ProductScreen() {
             {product.countInStock > 0 && (
               <ListGroup.Item>
                 <div className="d-grid">
-                  <button className="px-3.5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white" onClick={addToCartHandler} >
+                  <button
+                    className="px-3.5 py-2 rounded-lg bg-cyan-500 hover:bg-cyan-600 text-white"
+                    onClick={addToCartHandler}
+                  >
                     Add To Cart
                   </button>
                 </div>
@@ -161,9 +165,7 @@ function ProductScreen() {
       </div>
       <div className="product_description mx-8 lg:my-2 my-4">
         <h3>Description</h3>
-        <p>
-        product.description
-        </p>
+        <p>product.description</p>
       </div>
       <div className="product_suggest">
         <h2>Product Related To This Item</h2>

@@ -51,7 +51,7 @@ function CartScreen() {
                 {cartItems.map((item) => (
                   <ListGroupItem key={item._id}>
                     <div className="cartScreen">
-                      <div className="cartScreen_image_cart">
+                      <div className="cartScreen_image_cart items-center">
                         <img
                           style={{ height: "50px" }}
                           src={`/images/${item.image}`}

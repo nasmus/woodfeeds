@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import Product from "../../components/Product";
-import axios from "axios";
+import React, { useEffect, useState } from 'react'
+import Product from '../../components/Product';
+import axios from 'axios';
 
 function TopRatedProduct() {
   const [products, setProducts] = useState([]);
@@ -16,13 +16,13 @@ function TopRatedProduct() {
   }, []);
 
   return (
-    <div className=" mt-2 mb-2 ">
-      <h2 className=" m-2 ">Top Rated Product</h2>
-      <div className="product-grid">
-        {displayProduct.map((product) => (
-          <Product product={product}></Product>
-        ))}
-      </div>
+    <div className=' mt-2 mb-2 '>
+        <h2 className=' m-2 ' >Top Rated Product</h2>
+        <div className="product-grid">
+            {displayProduct.map((product) => (
+              <Product product={product}></Product>
+            ))}
+          </div>
     </div>
   );
 }
