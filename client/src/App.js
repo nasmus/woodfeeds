@@ -60,7 +60,6 @@ function App() {
             <Route path="/shipping" element={<ShipingAddressScreen />} />
             <Route path="/order/:id" element={<OrderScreen />} />
             <Route path="/orderhistory" element={<OrederHistoryScreen />} />
-<<<<<<< HEAD
             <Route path="/category/:id" element={<CategoryPage />} />
             <Route path="/reset_password/:token" element={<ResetPassword />} />
             <Route path="/forgot-password" element={<SendEmail />} />
@@ -68,11 +67,9 @@ function App() {
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
             <Route path="/return-refund" element={<returnRefund />} />
-=======
             <Route path="/category/:id/:slug" element={ <CategoryPage /> } />
             <Route path="/reset_password/:token" element={ <ResetPassword /> } />
             <Route path="/forgot-password" element={ <SendEmail /> } />
->>>>>>> 8f984186de0258908d38e3380bdd1748943dfc5b
           </Routes>
         </main>
         <footer className=" mt-16 ">
