@@ -1,36 +1,44 @@
-import axios from 'axios';
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import SearchSuggestList from './SearchSuggestList';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import SearchSuggestList from "./SearchSuggestList";
 
 export default function SearchBox() {
-    const navigate = useNavigate();
-    const [query, setQuery] = useState('');
-    const [suggestion, setSuggestion] = useState([]);
+  const navigate = useNavigate();
+  const [query, setQuery] = useState("");
+  const [suggestion, setSuggestion] = useState([]);
+  const [data, setData] = useState([]);
+  
 
-    const submitHendler = (e) => {
-        e.preventDefault();
-        navigate(query ? `/search?query=${query}`: '/search' );
-    };
+  const submitHendler = (e) => {
+    e.preventDefault();
+    navigate(query ? `/search?query=${query}` : "/search");
+  };
 
-    const HandleChange = (e) => {
-        setQuery(e);
-        getData(e);
+  const HandleChange = (e) => {
+    setQuery(e);
+    getData(e);
+  };
+
+  useEffect(()=>{
+    const fatchData = async() => {
+      const { data } = await axios.get('/api/products');
+      setData(data)
     }
+    fatchData()
+  },[])
 
-    
-        async function getData(value) {
-            try {
-                const { data } = await axios.get('/api/products');
-                const result = data.filter((rez) => {
-                    return value && rez && rez.name.toLowerCase().includes(value)
-                });
-                setSuggestion(result);
-                console.log(suggestion);
-            } catch (err) {
-                console.log(err);
-            }
-        }
+  function getData(value) {
+    try {
+      const result = data.filter((rez) => {
+        return value && rez && rez.name.toLowerCase().includes(value);
+      });
+      setSuggestion(result);
+      console.log(suggestion);
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
   return (
     <div>
@@ -52,7 +60,11 @@ export default function SearchBox() {
             </button>
           </form>
         </div>
-          {suggestion && suggestion.length > 0 ? <SearchSuggestList suggestion={suggestion} /> : ''}
+        {suggestion && suggestion.length > 0 ? (
+          <SearchSuggestList suggestion={suggestion} />
+        ) : (
+          ""
+        )}
       </div>
     </div>
   );
