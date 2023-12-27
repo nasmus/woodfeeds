@@ -2,27 +2,30 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./App.css";
 import HomeScreen from "./screen/HomeScreen";
 import ProductScreen from "./screen/ProudctScreen/ProductScreen";
-import "./App.css";
 //import { Store } from './Store';
-import CartScreen from "./screen/CartScreen";
-import SignInScreen from "./screen/SignUp/SignInScreen";
-import ShipingAddressScreen from "./screen/ShipingAddressScreen";
-import SignUpScreen from "./screen/SignUp/SignUpScreen";
-import PaymentMethodScreen from "./screen/Order/PaymentMethodScreen";
-import PlaceOrderScreen from "./screen/Order/PlaceOrderScreen";
-import OrderScreen from "./screen/Order/OrderScreen";
-import OrederHistoryScreen from "./screen/Order/OrederHistoryScreen";
-import ProfileScreen from "./screen/ProfileScreen";
-import SearchScreen from "./screen/SearchScreen";
-import Header from "./components/Header/Header";
 import { useState } from "react";
+import CategoryHeader from "./components/Header/CategoryHeader";
+import Header from "./components/Header/Header";
+import AboutUs from "./pages/AboutUs";
+import TermsConditions from "./pages/Termsconditions";
+import FAQ from "./pages/faq";
+import CartScreen from "./screen/CartScreen";
 import CategoryPage from "./screen/CategoryPage";
 import Footer from "./screen/FooterScreen/Footer";
-import CategoryHeader from "./components/Header/CategoryHeader";
+import OrderScreen from "./screen/Order/OrderScreen";
+import OrederHistoryScreen from "./screen/Order/OrederHistoryScreen";
+import PaymentMethodScreen from "./screen/Order/PaymentMethodScreen";
+import PlaceOrderScreen from "./screen/Order/PlaceOrderScreen";
+import ProfileScreen from "./screen/ProfileScreen";
+import SearchScreen from "./screen/SearchScreen";
+import ShipingAddressScreen from "./screen/ShipingAddressScreen";
 import ResetPassword from "./screen/SignUp/ResetPassword";
 import SendEmail from "./screen/SignUp/SendEmail";
+import SignInScreen from "./screen/SignUp/SignInScreen";
+import SignUpScreen from "./screen/SignUp/SignUpScreen";
 
 
 function App() {
@@ -57,6 +60,13 @@ function App() {
             <Route path="/shipping" element={<ShipingAddressScreen />} />
             <Route path="/order/:id" element={<OrderScreen />} />
             <Route path="/orderhistory" element={<OrederHistoryScreen />} />
+            <Route path="/category/:id" element={<CategoryPage />} />
+            <Route path="/reset_password/:token" element={<ResetPassword />} />
+            <Route path="/forgot-password" element={<SendEmail />} />
+            <Route path="/faq" element={<FAQ />} />
+            <Route path="/about-us" element={<AboutUs />} />
+            <Route path="/terms-conditions" element={<TermsConditions />} />
+            <Route path="/return-refund" element={<returnRefund />} />
             <Route path="/category/:id/:slug" element={ <CategoryPage /> } />
             <Route path="/reset_password/:token" element={ <ResetPassword /> } />
             <Route path="/forgot-password" element={ <SendEmail /> } />
