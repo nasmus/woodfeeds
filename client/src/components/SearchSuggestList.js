@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function SearchSuggestList({suggestion}) {
@@ -7,7 +8,7 @@ export default function SearchSuggestList({suggestion}) {
     {suggestion.map((suggest) => {
       return (
         <Link className="!text-black no-underline" to={`/product/${suggest.slug}`}>
-          <div className="flex p-4 w-[300px] max-w-[300px] lg:w-[500px] lg:max-w-[500px] hover:bg-slate-200 transition-colors">
+          <div className="flex items-center p-4 w-[300px] max-w-[300px] lg:w-[500px] lg:max-w-[500px] hover:bg-slate-200 transition-colors">
             <img
               src={`/images/${suggest.image}`}
               alt="img"
