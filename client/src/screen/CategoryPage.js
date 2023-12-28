@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-import Product from "../components/Product";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Product from "../components/Product";
 
 function CategoryPage() {
   const [categoryValue, setCategoryValue] = useState([]);
@@ -20,9 +20,15 @@ function CategoryPage() {
   return (
     <div>
       <div className="product-grid2">
-        {categoryValue.map((product) => {
+        {categoryValue.length > 0 ? (
+        categoryValue.map((product) => {
           return <Product product={product}></Product>;
-        })}
+        })
+        ) : (
+            <div className="min-h-[50vh]">
+              <h3 className="text-center">No Product found!</h3>
+            </div>
+        )}
       </div>
     </div>
   );
