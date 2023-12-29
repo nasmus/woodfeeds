@@ -7,7 +7,7 @@ function CategoryPage() {
   const [categoryValue, setCategoryValue] = useState([]);
   const param = useParams();
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(4);
+  const [productsPerPage] = useState(10);
 
   useEffect(() => {
     const fatchData = async () => {
@@ -47,7 +47,7 @@ function CategoryPage() {
       </div>
 
       {/* Pagination */}
-      <div className="flex justify-center items-center">
+      <div className="flex justify-center items-center pt-4">
         {Array.from({
           length: Math.ceil(categoryValue.length / productsPerPage),
         }).map((_, index) => (
