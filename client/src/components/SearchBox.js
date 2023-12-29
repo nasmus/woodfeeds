@@ -8,12 +8,23 @@ export default function SearchBox() {
   const [query, setQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [data, setData] = useState([]);
+  const [isFocused, setIsFocused] = useState(false);
+
   
 
   const submitHendler = (e) => {
     e.preventDefault();
     navigate(query ? `/search?query=${query}` : "/search");
   };
+  const focusHandler = () => {
+    setIsFocused(true);
+  }
+  const blurHandler = () => {
+    setTimeout(() => {
+      setIsFocused(false);
+    }, 300);
+  }
+  
 
   const HandleChange = (e) => {
     setQuery(e);
@@ -39,6 +50,7 @@ export default function SearchBox() {
       console.log(err);
     }
   }
+  
 
   return (
     <div>
@@ -51,6 +63,8 @@ export default function SearchBox() {
               className="form-control ec-search-bar"
               placeholder="Search products..."
               type="text"
+              onFocus={focusHandler}
+              onBlur={blurHandler}
               aria-describedby="button-search"
               aria-label="search product"
               onChange={(e) => HandleChange(e.target.value)}
@@ -60,8 +74,10 @@ export default function SearchBox() {
             </button>
           </form>
         </div>
-        {suggestion && suggestion.length > 0 ? (
-          <SearchSuggestList suggestion={suggestion} />
+        { isFocused &&  suggestion && suggestion.length > 0 ? (
+            <SearchSuggestList
+              suggestion={suggestion}
+            />
         ) : (
           ""
         )}

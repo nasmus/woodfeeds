@@ -149,7 +149,7 @@ function PlaceOrderScreen() {
                     <ListGroup.Item key={item._id}>
                       <Row className="align-items-center ">
                         <Col xs={6} md={6}>
-                          <div className="flex lg:w-[90%]">
+                          <div className="flex items-center lg:w-[90%]">
                             <img
                               style={{ height: "60px" }}
                               src={`/images/${item.image}`}
