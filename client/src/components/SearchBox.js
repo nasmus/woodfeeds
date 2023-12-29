@@ -7,8 +7,7 @@ export default function SearchBox() {
   const navigate = useNavigate();
   const [query, setQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
-  const [data, setData] = useState([]);
-  
+  const [data, setData] = useState([]);  
 
   const submitHendler = (e) => {
     e.preventDefault();
@@ -34,9 +33,7 @@ export default function SearchBox() {
         return value && rez && rez.name.toLowerCase().includes(value);
       });
       setSuggestion(result);
-      console.log(suggestion);
     } catch (err) {
-      console.log(err);
     }
   }
 
