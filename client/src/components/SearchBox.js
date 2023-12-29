@@ -8,8 +8,6 @@ export default function SearchBox() {
   const [query, setQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [data, setData] = useState([]);
-  const [isFocused, setIsFocused] = useState(false);
-
   
 
   const submitHendler = (e) => {
@@ -45,9 +43,7 @@ export default function SearchBox() {
         return value && rez && rez.name.toLowerCase().includes(value);
       });
       setSuggestion(result);
-      console.log(suggestion);
     } catch (err) {
-      console.log(err);
     }
   }
   
