@@ -8,6 +8,7 @@ export default function SearchBox() {
   const [query, setQuery] = useState("");
   const [suggestion, setSuggestion] = useState([]);
   const [data, setData] = useState([]);
+  const [isFocused, setIsFocused] = useState(false);
   
 
   const submitHendler = (e) => {
