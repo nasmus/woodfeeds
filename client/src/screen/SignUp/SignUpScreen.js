@@ -24,18 +24,23 @@ function SignUpScreen() {
       toast.error("password do not match");
       return;
     }
-    try {
-      const { data } = await Axios.post("/api/users/signup", {
-        name,
-        email,
-        phone,
-        password,
-      });
-      ctxDispatch({ type: "USER_SIGNIN", payload: data });
-      localStorage.setItem('userInfo', JSON.stringify(data));
-      navigate(redirect || "/");
-    } catch (err) {
-      toast.error(getError(err));
+    if (phone.length === 11 && /^01\d{9}$/.test(phone)) {
+      
+      try {
+        const { data } = await Axios.post("/api/users/signup", {
+          name,
+          email,
+          phone,
+          password,
+        });
+        ctxDispatch({ type: "USER_SIGNIN", payload: data });
+        localStorage.setItem("userInfo", JSON.stringify(data));
+        navigate(redirect || "/");
+      } catch (err) {
+        toast.error(getError(err));
+      }
+    } else {
+      toast.error('Invalid phone number!');
     }
   };
 
@@ -45,6 +50,12 @@ function SignUpScreen() {
     }
   }, [navigate, redirect, userInfo]);
 
+  const handlePhone = (e) => {
+    const withoutSpace = e.target.value.replace(/\s/g, "");
+    setPhone(withoutSpace);
+    
+  }
+  
   return (
     <div>
       <section className=" m-auto ">
@@ -77,7 +88,7 @@ function SignUpScreen() {
                           <div className="form-outline">
                             <input
                               type="text"
-                              onChange={(e) => setPhone(e.target.value)}
+                              onChange={(e) => handlePhone(e)}
                               required
                               className="form-control"
                             />
