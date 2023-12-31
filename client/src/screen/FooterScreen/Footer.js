@@ -14,8 +14,7 @@ function Footer() {
         <div className="hidden lg:block lg:max-w-sm lg:my-6">
           <img src={logo} className="w-60" alt="Site Logo" />
           <p className="py-4">
-            Largest product search engine, maximum categorized online shopping
-            mall and quickest home delivery system.
+          Transform Your Space with Exquisite Wooden Wonders - Explore Timeless Furniture at woodfeeds.com
           </p>
         </div>
         <div className="my-8 md:my-0">

@@ -99,7 +99,7 @@ function AdminDashboard() {
                 </h1>
               ))}
 
-              <p>total selles</p>
+              <p>Total Selles</p>
             </div>
             <div className="right">
               <AccountBalanceIcon />

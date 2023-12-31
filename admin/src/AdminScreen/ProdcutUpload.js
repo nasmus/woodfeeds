@@ -92,7 +92,6 @@ function ProdcutUpload() {
       const upload = await axios.post(`/api/product/create`, form, {
         headers: { Authorization: `Bearer ${userInfo.token}` },
       });
-      console.log(upload);
       alert("product upload successfully");
     } catch (error) {
       alert(error);

@@ -25,7 +25,6 @@ function AdminProductList() {
   return (
     <div>
       <Sidebar />
-      {console.log("allproduct", allProduct)}
       <div>
         <div class=" ml-52 relative overflow-x-auto shadow-md sm:rounded-lg">
           <div class="flex flex-column sm:flex-row flex-wrap space-y-4 sm:space-y-0 items-center justify-between pb-4">

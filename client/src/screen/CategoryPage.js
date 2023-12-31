@@ -51,8 +51,8 @@ function CategoryPage() {
         {Array.from({
           length: Math.ceil(categoryValue.length / productsPerPage),
         }).map((_, index) => (
-          <button className="px-3 py-2 text-xs font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700  focus:outline-none focus:ring-blue-300 " key={index} onClick={() => paginate(index + 1)}>
-            {index + 1}
+          <button className="px-3 mr-1 py-2 text-xs font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700  focus:outline-none focus:ring-blue-300 " key={index} onClick={() => paginate(index + 1)}>
+             <b>{index + 1}</b>
           </button>
         ))}
       </div>

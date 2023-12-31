@@ -80,6 +80,7 @@ function SignUpScreen() {
                               onChange={(e) => setPhone(e.target.value)}
                               required
                               className="form-control"
+                              placeholder="01712000000"
                             />
                             <label className="form-label">Phone Number</label>
                           </div>
@@ -118,7 +119,7 @@ function SignUpScreen() {
 
                       <button
                         type="submit"
-                        class="w-full text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
+                        className="w-full text-white bg-cyan-500 hover:bg-cyan-600 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center "
                       >
                         Create an account
                       </button>
@@ -130,7 +131,7 @@ function SignUpScreen() {
                             Sign In
                           </Link>
                         </p>
-                        <p>or sign up with:</p>
+                        {/* <p>or sign up with:</p>
                         <button
                           type="button"
                           className="btn btn-link btn-floating mx-1"
@@ -157,7 +158,7 @@ function SignUpScreen() {
                           className="btn btn-link btn-floating mx-1"
                         >
                           <i className="fab fa-github"></i>
-                        </button>
+                        </button> */}
                       </div>
                     </form>
                   </div>
@@ -167,41 +168,6 @@ function SignUpScreen() {
           </div>
         </div>
       </section>
-
-      {/* <Container className='small-container' >
-            <h1>Sign Up</h1>
-            <Form onSubmit={submitHendler} >
-                <Form.Group className="md-3" controlId="name"  >
-                    <Form.Label>Name</Form.Label>
-                    <Form.Control type='text' onChange={(e) => setName(e.target.value)} required />
-                </Form.Group>
-                <Form.Group className="md-3" controlId="email"  >
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control type="email" onChange={(e) => setEmail(e.target.value)} required />
-                </Form.Group>
-                <Form.Group className="md-3" controlId="phone"  >
-                    <Form.Label>Phone Number</Form.Label>
-                    <Form.Control type='text' onChange={(e) => setPhone(e.target.value)} required />
-                </Form.Group>
-                <Form.Group className="md-3" controlId="password"  >
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control type="password" onChange={(e) => setPassword(e.target.value)} required />
-                </Form.Group>
-                <Form.Group className="md-3" controlId="confirmpassword"  >
-                    <Form.Label> Confirm Password</Form.Label>
-                    <Form.Control type="password" onChange={(e) => setConfirmPassword(e.target.value)} required />
-                </Form.Group>
-                <div md={3}>
-                    <Button type='submit' >
-                        SignUp
-                    </Button>
-                </div>
-                <div md={3}>
-                    Already Have an account ? {" "}
-                    <Link to={`/signin?redirect=${redirect}`} >Sign In</Link>
-                </div>
-            </Form>
-        </Container> */}
     </div>
   );
 }
