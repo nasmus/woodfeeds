@@ -8,7 +8,6 @@ import logo from "../../css/logo.png";
 import SearchBox from "../SearchBox";
 import SocialHeader from "./SocialHeader";
 
-
 function Header() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart, userInfo } = state;
@@ -19,7 +18,6 @@ function Header() {
     localStorage.removeItem("paymentMethod");
   };
 
-  
   return (
     <div>
       <SocialHeader />
@@ -34,7 +32,6 @@ function Header() {
                       style={{ width: "230px" }}
                       src={logo}
                       alt="Site Logo"
-                      
                     />
                   </Link>
                 </div>
@@ -143,10 +140,7 @@ function Header() {
                 </Link>
               </div>
             </div>
-
-            <div className="col">
-            {<SearchBox />}
-            </div>
+            <div className="col">{<SearchBox />}</div>
           </div>
         </div>
       </div>

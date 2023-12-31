@@ -91,4 +91,10 @@
       display: none;
     }
   }
+  @media only screen and (max-width: 640px){
+    .suggest_search_prodcut{
+      display: flex;
+      justify-content: center;
+    }
+  }
   
