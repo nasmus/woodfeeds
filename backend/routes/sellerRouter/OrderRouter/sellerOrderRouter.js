@@ -7,44 +7,6 @@ const ObjectId = mongoose.Types.ObjectId;
 
 const sellerOrderRouter = express.Router();
 
-// all order Items for seller
-sellerOrderRouter.get(
-  "/allorder",
-  isAuth,
-  isAdmin,
-  expressAsyncHandler(async (req, res) => {
-    const userId = req.user._id;
-    //const order = await Order.find({"orderItems.seller": userId},{"orderItems":{$elemMatch:{"orderItems.seller":userId}}});
-    
-    const order = await Order.find(
-      { "orderItems.seller": userId },
-      { "orderItems.$": 1 }
-    );
-    if (order) {
-      res.status(200).send(order);
-    } else {
-      res.status(404).send({ message: "Data Not Found" });
-    }
-  })
-);
-
-//order address for order user
-sellerOrderRouter.get(
-  "/orderaddress",
-  isAuth,
-  isAdmin,
-  expressAsyncHandler(async (req, res) => {
-    const userId = req.user._id;
-    const orderAddress = await Order.distinct("shippingAddress").where({
-      "orderItems.seller": userId,
-    });
-    if (orderAddress) {
-      res.status(200).send(orderAddress);
-    } else {
-      res.status(404).send({ message: "data not found" });
-    }
-  })
-);
 
 // product atatus update
 sellerOrderRouter.put(
@@ -55,9 +17,7 @@ sellerOrderRouter.put(
     try {
       const userId = req.user._id;
       const newStatusCode = req.body.isDelivered;
-      const product = await Order.findOneAndUpdate("isDelivered").where({
-        "orderItems.seller": userId,
-      });
+      const product = await Order.findOneAndUpdate({"orderItems._id": userId});
       if (product) {
         product.isDelivered = newStatusCode;
         await product.save();

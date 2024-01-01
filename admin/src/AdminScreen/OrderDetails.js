@@ -79,17 +79,22 @@ function OrderDetails() {
           Order Details
         </h1>
         <div className="flex md:flex-col md:w-1/5">
+        <form onSubmit={handleSubmit}>
           <select
+            name="rderStatus"
             id="status"
+            value={orderStatus}
+            onChange={(e) => setOrderStatus(e.target.value)}
             className="bg-gray-50 border border-gray-300 text-gray-900  rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full md:px-6 p-2 "
           >
             <option value="Processing">Processing</option>
             <option value="Shipped">Shipped</option>
             <option value="Received">Received</option>
           </select>
-          <button className="bg-green-500 hover:bg-green-600 p-2 ml-2 md:ml-0 md:px-6 md:my-1.5 text-white rounded-lg">
+          <button className="bg-green-500 w-full hover:bg-green-600 p-2 ml-2 md:ml-0 md:px-6 md:my-1.5 text-white rounded-lg">
             Submit
           </button>
+        </form>
         </div>
       </div>
 
@@ -110,6 +115,9 @@ function OrderDetails() {
                   </th>
                   <th scope="col" className="px-6 py-3">
                     Price
+                  </th>
+                  <th scope="col" className="px-6 py-3">
+                    Status
                   </th>
                 </tr>
               </thead>
@@ -136,6 +144,10 @@ function OrderDetails() {
                           </td>
                           <td className="px-6 py-4">
                             {item.price * item.quantity}
+                          </td>
+                          <td className="px-6 py-4">
+                          <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">{item.orderStatus}</span>
+                            
                           </td>
                         </tr>
                       </tbody>

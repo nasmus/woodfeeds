@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import '../css/Product.css';
 import SearchSuggestList from "./SearchSuggestList";
 
 export default function SearchBox() {
@@ -9,7 +10,6 @@ export default function SearchBox() {
   const [suggestion, setSuggestion] = useState([]);
   const [data, setData] = useState([]);
   const [isFocused, setIsFocused] = useState(false);
-  
 
   const submitHendler = (e) => {
     e.preventDefault();
@@ -17,26 +17,25 @@ export default function SearchBox() {
   };
   const focusHandler = () => {
     setIsFocused(true);
-  }
+  };
   const blurHandler = () => {
     setTimeout(() => {
       setIsFocused(false);
     }, 300);
-  }
-  
+  };
 
   const HandleChange = (e) => {
     setQuery(e);
     getData(e);
   };
 
-  useEffect(()=>{
-    const fatchData = async() => {
-      const { data } = await axios.get('/api/products');
-      setData(data)
-    }
-    fatchData()
-  },[])
+  useEffect(() => {
+    const fatchData = async () => {
+      const { data } = await axios.get("/api/products");
+      setData(data);
+    };
+    fatchData();
+  }, []);
 
   function getData(value) {
     try {
@@ -44,10 +43,8 @@ export default function SearchBox() {
         return value && rez && rez.name.toLowerCase().includes(value);
       });
       setSuggestion(result);
-    } catch (err) {
-    }
+    } catch (err) {}
   }
-  
 
   return (
     <div>
@@ -71,13 +68,13 @@ export default function SearchBox() {
             </button>
           </form>
         </div>
-        { isFocused &&  suggestion && suggestion.length > 0 ? (
-            <SearchSuggestList
-              suggestion={suggestion}
-            />
-        ) : (
-          ""
-        )}
+        <div className="suggest_search_prodcut">
+          {isFocused && suggestion && suggestion.length > 0 ? (
+            <SearchSuggestList suggestion={suggestion} />
+          ) : (
+            ""
+          )} 
+        </div>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { getError } from "../utils";
 import axios from "axios";
 import { Editor } from "@tinymce/tinymce-react";
+import CancelIcon from '@mui/icons-material/Cancel';
 
 
 const reducer = (state, action) => {
@@ -54,11 +55,18 @@ function EditProductScreen() {
   const [category, setCategory] = useState([]);
   const [viewCategory, setViewCategory] = useState('');
   const [viewImage, setViewImage] = useState([]);
+  const [editImage, setEditImage] = useState([])
 
   const handleMultipleImageChange = (e) => {
     const files = e.target.files;
     setMultipleImages([...multipleImage, ...files]);
   };
+
+  // const handleImageDelete = (index) => {
+  //   const updatedImages = [...multipleImage];
+  //   updatedImages.splice(index, 1);
+  //   setEditImage({...multipleImage,  viewImage: updatedImages });
+  // };
 
   useEffect(() => {
     const fatchdata = async () => {
@@ -304,12 +312,14 @@ function EditProductScreen() {
                 <h3 className="my-3 text-lg font-semibold">Image Upload</h3>
                 <div>
                   <div className="image_grid">
-                    {multipleImage.map((images, index) => (
-                      <div className="image" key={index}>
-                        <img src={URL.createObjectURL(images)} alt="" />
+                    {viewImage.map((images, index) => (
+                      <div className="image" key={index}>                        
+                         <img src={`/images/${images}`} alt={`${index + 1}`} />
+                         {/* <CancelIcon className=" cursor-pointer " onClick={() => handleImageDelete(index)}>Delete</CancelIcon> */}
                       </div>
                     ))}
                   </div>
+                  
                 </div>
                 <div>
                   <div class="flex items-center justify-center w-full">
@@ -353,12 +363,7 @@ function EditProductScreen() {
                     </label>
                   </div>
                 </div>
-                <button
-                  type="submit"
-                  class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  focus:outline-none "
-                >
-                  Proudct Upload
-                </button>
+                
               </section>
             </div>
           </form>
