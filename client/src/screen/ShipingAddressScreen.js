@@ -232,6 +232,26 @@ function ShipingAddressScreen() {
               </label>
             </div>
           </div>
+          <div className="flex items-center">
+            <div>
+              <input
+                id="cod"
+                type="radio"
+                value="Cash on delivery"
+                checked={paymentMethodName === "Cash on delivery"}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2 "
+              />
+            </div>
+            <div>
+              <label
+                for="default-radio-2"
+                className="ml-2 text-sm font-medium text-gray-900"
+              >
+                Cash on delivey
+              </label>
+            </div>
+          </div>
         </div>
         <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">
           Submit address
