@@ -1,5 +1,5 @@
 import React from 'react'
-import {AreaChart,XAxis,YAxis,CartesianGrid,Tooltip,Area} from 'recharts'
+import { Area, AreaChart, CartesianGrid, Tooltip, XAxis, YAxis } from 'recharts'
 
 export default function AreacChart() {
     const data = [
@@ -16,7 +16,7 @@ export default function AreacChart() {
           "amt": 2210
         },
         {
-          "name": "Mer",
+          "name": "Mar",
           "uv": 2000,
           "pv": 9800,
           "amt": 2290
@@ -58,7 +58,7 @@ export default function AreacChart() {
           "amt": 2100
         },
         {
-          "name": "Ouc",
+          "name": "Oct",
           "uv": 4000,
           "pv": 2400,
           "amt": 2400
@@ -79,7 +79,7 @@ export default function AreacChart() {
       ]
   return (
     <div className='areaChart'>
-        <AreaChart width={650} height={280} data={data}
+        <AreaChart width={510} height={280} data={data}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
         <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
