@@ -6,7 +6,6 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import AreacChart from "../Component/AreacChart";
 import Notification from "../Component/Notification";
-import Sidebar from "../Component/Sidebar";
 import "../Css/SellerDashboard.css";
 import { Store } from "../Store";
 
@@ -69,34 +68,33 @@ function AdminDashboard() {
 
   return (
     <div>
-      
-        <Sidebar />
+      {/* <Sidebar /> */}
 
       <div className="m-2">
-        <div className="Order_information justify-between">
-          <div className="flex p-3 h-1/6 lg:w-1/5  text-violet-600 bg-white justify-evenly items-center rounded-lg shadow-lg me-3">
+        <div className="Order_information flex flex-col justify-center items-center lg:flex-row lg:justify-between ">
+          <div className="flex p-3 h-1/4 py-12 w-10/12 lg:w-1/5  text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl mb-4">
             <div className="left">
               <h1 className=" text-3xl font-extrabold text-center">
                 {countProduct}
               </h1>
               <p>Total Product</p>
             </div>
-            <div className="right hidden lg:block">
+            <div className="right">
               <ProductionQuantityLimitsIcon />
             </div>
           </div>
-          <div className="flex p-3 h-1/6 lg:w-1/5 text-violet-600 bg-white justify-evenly items-center rounded-lg shadow-lg me-3">
+          <div className="flex p-3 h-1/6 py-12 w-10/12  lg:w-1/5 text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl my-4">
             <div className="left">
               <h1 className="text-3xl font-extrabold text-center ">
                 {countOrder}
               </h1>
               <p>Product Orders</p>
             </div>
-            <div className="right hidden lg:block">
+            <div className="right">
               <AddAlertIcon className="" />
             </div>
           </div>
-          <div className="flex p-3 h-1/6 lg:w-1/5 text-violet-600 bg-white justify-evenly items-center rounded-lg shadow-lg me-3">
+          <div className="flex p-3 h-1/4 py-12 w-10/12 lg:w-1/5 text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl my-4">
             <div className="left">
               {totalSelles.map((item) => (
                 <h1 className=" text-3xl font-extrabold text-center ">
@@ -106,18 +104,18 @@ function AdminDashboard() {
 
               <p>Total Sales</p>
             </div>
-            <div className="right hidden lg:block">
+            <div className="right">
               <AccountBalanceIcon />
             </div>
           </div>
-          <div className="flex p-3 h-1/6 lg:w-1/5 text-violet-600 bg-white justify-evenly items-center rounded-lg shadow-lg">
+          <div className="flex p-3 h-1/6 py-12 w-10/12 lg:w-1/5 text-violet-600 bg-white  items-center justify-around rounded-lg drop-shadow-xl my-4">
             <div className="left">
               <h1 className="text-3xl font-extrabold text-center ">
                 {pandingOrder}
               </h1>
               <p>Pending Order</p>
             </div>
-            <div className="right hidden lg:block">
+            <div className="right lg:block">
               <BatchPredictionIcon />
             </div>
           </div>

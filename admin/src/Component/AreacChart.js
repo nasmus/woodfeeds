@@ -79,7 +79,7 @@ export default function AreacChart() {
       ]
   return (
     <div className='areaChart'>
-        <AreaChart width={510} height={280} data={data}
+        <AreaChart width={490} height={280} data={data}
         margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
         <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
