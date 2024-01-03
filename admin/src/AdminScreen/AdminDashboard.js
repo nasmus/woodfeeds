@@ -6,6 +6,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import AreacChart from "../Component/AreacChart";
 import Notification from "../Component/Notification";
+import Sidebar from "../Component/Sidebar";
 import "../Css/SellerDashboard.css";
 import { Store } from "../Store";
 
@@ -68,9 +69,10 @@ function AdminDashboard() {
 
   return (
     <div>
-      {/* <Sidebar /> */}
-
-      <div className="m-2">
+      <div className="hidden lg:block">
+        <Sidebar />
+      </div>
+      <div className="lg:ml-52">
         <div className="Order_information flex flex-col justify-center items-center lg:flex-row lg:justify-between ">
           <div className="flex p-3 h-1/4 py-12 w-10/12 lg:w-1/5  text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl mb-4">
             <div className="left">
