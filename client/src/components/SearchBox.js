@@ -1,8 +1,8 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SearchSuggestList from "./SearchSuggestList";
 import '../css/Product.css';
+import SearchSuggestList from "./SearchSuggestList";
 
 export default function SearchBox() {
   const navigate = useNavigate();
