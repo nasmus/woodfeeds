@@ -13,6 +13,7 @@ export default function SearchBox() {
 
   const submitHendler = (e) => {
     e.preventDefault();
+    setIsFocused(false);
     navigate(query ? `/search?query=${query}` : "/search");
   };
   const focusHandler = () => {
