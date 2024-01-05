@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Store } from "../Store";
 import "../css/ShippingAddress.css";
 function ShipingAddressScreen() {
@@ -10,6 +11,13 @@ function ShipingAddressScreen() {
   } = state;
   const navigate = useNavigate();
 
+   const [address, setAddress] = useState(shippingAddress.address || "");
+   const [city, setCity] = useState(shippingAddress.city || "");
+   const [distric, setDistric] = useState(shippingAddress.distric || "");
+   const [phoneNumber, setPhoneNumber] = useState(
+     shippingAddress.phoneNumber || ""
+   );
+
   useEffect(() => {
     if (!userInfo) {
       navigate("/signin?redirect=/shipping");
@@ -18,37 +26,38 @@ function ShipingAddressScreen() {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    ctxDispatch({
-      type: "SAVE_SHIPPING_ADDRESS",
-      payload: {
-        fullName,
-        phoneNumber,
-        address,
-        city,
-        distric,
-      },
-    });
-    localStorage.setItem(
-      "shippingAddress",
-      JSON.stringify({
-        fullName,
-        phoneNumber,
-        address,
-        city,
-        distric,
-      })
-    );
-    // navigate("/payment");
+    if (phoneNumber.length === 11 && /^01\d{9}$/.test(phoneNumber)) {
+      ctxDispatch({
+        type: "SAVE_SHIPPING_ADDRESS",
+        payload: {
+          fullName,
+          phoneNumber,
+          address,
+          city,
+          distric,
+        },
+      });
+      localStorage.setItem(
+        "shippingAddress",
+        JSON.stringify({
+          fullName,
+          phoneNumber,
+          address,
+          city,
+          distric,
+        })
+      );
+      // navigate("/payment");
 
-    ctxDispatch({ type: "SAVE_PAYMENT_METHOD", payload: paymentMethodName });
-    localStorage.setItem("paymentMethod", paymentMethodName);
-    navigate("/placeorder");
+      ctxDispatch({ type: "SAVE_PAYMENT_METHOD", payload: paymentMethodName });
+      localStorage.setItem("paymentMethod", paymentMethodName);
+      navigate("/placeorder");
+    } else {
+      toast.error('Invalid phone number!');
+    }
   };
   const [fullName, setFullName] = useState(shippingAddress.fullName || "");
-  const [address, setAddress] = useState(shippingAddress.address || "");
-  const [city, setCity] = useState(shippingAddress.city || "");
-  const [distric, setDistric] = useState(shippingAddress.distric || "");
-  const [phoneNumber, setPhoneNumber] = useState(shippingAddress.phoneNumber || "");
+ 
 
   // Payment method
 
@@ -61,6 +70,13 @@ function ShipingAddressScreen() {
   //     navigate('/shipping');
   //   }
   // }, [shippingAddress, navigate]);
+
+  const handlePhoneNumberChange = (e) => {
+        const cleanedPhoneNumber = e.target.value.replace(/\s/g, "");
+        setPhoneNumber(cleanedPhoneNumber);
+
+  }
+    
 
   return (
     <form onSubmit={submitHandler} className="address">
@@ -83,7 +99,7 @@ function ShipingAddressScreen() {
                 onChange={(e) => setFullName(e.target.value)}
                 required
               />
-                {/* <p className="text-red-500 text-xs italic">
+              {/* <p className="text-red-500 text-xs italic">
                   Please fill out this field.
                 </p> */}
             </div>
@@ -100,7 +116,7 @@ function ShipingAddressScreen() {
                 type="text"
                 value={phoneNumber}
                 placeholder="Phone Number"
-                onChange={(e) => setPhoneNumber(e.target.value)}
+                onChange={handlePhoneNumberChange}
                 required
               />
             </div>
@@ -216,6 +232,26 @@ function ShipingAddressScreen() {
               </label>
             </div>
           </div>
+          <div className="flex items-center">
+            <div>
+              <input
+                id="cod"
+                type="radio"
+                value="Cash on delivery"
+                checked={paymentMethodName === "Cash on delivery"}
+                onChange={(e) => setPaymentMethod(e.target.value)}
+                className="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 focus:ring-2 "
+              />
+            </div>
+            <div>
+              <label
+                for="default-radio-2"
+                className="ml-2 text-sm font-medium text-gray-900"
+              >
+                Cash on delivey
+              </label>
+            </div>
+          </div>
         </div>
         <button className="bg-cyan-500 hover:bg-cyan-600 text-white font-bold py-2 px-4 rounded">
           Submit address
@@ -223,6 +259,6 @@ function ShipingAddressScreen() {
       </div>
     </form>
   );
+              
 }
-
 export default ShipingAddressScreen;

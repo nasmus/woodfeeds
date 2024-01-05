@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useContext, useRef } from "react";
-import Sidebar from "../Component/Sidebar";
-import axios from "axios";
-import { Store } from "../Store";
 import { Editor } from "@tinymce/tinymce-react";
+import axios from "axios";
+import React, { useContext, useEffect, useRef, useState } from "react";
+import Sidebar from "../Component/Sidebar";
+import { Store } from "../Store";
 
 function ProdcutUpload() {
   const { state } = useContext(Store);
@@ -99,8 +99,10 @@ function ProdcutUpload() {
   };
   return (
     <div>
-      <Sidebar />
-      <div style={{ paddingLeft: "200px" }}>
+      <div className="hidden lg:block">
+        <Sidebar />
+      </div>
+      <div className="lg:pl-52">
         <form
           onSubmit={handleSubmit}
           method="post"
@@ -286,7 +288,6 @@ function ProdcutUpload() {
                       value={height}
                       placeholder="Height"
                       onChange={(e) => setHeight(e.target.value)}
-                      
                     />
                   </div>
                   <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -303,7 +304,6 @@ function ProdcutUpload() {
                       value={width}
                       placeholder="Width"
                       onChange={(e) => setWidth(e.target.value)}
-                      
                     />
                   </div>
                   <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
@@ -320,7 +320,6 @@ function ProdcutUpload() {
                       value={thickness}
                       placeholder="Product Thickness"
                       onChange={(e) => setThickness(e.target.value)}
-                      
                     />
                   </div>
                 </div>

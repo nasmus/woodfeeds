@@ -1,14 +1,14 @@
-import React, { useContext, useEffect, useState } from "react";
-import Sidebar from "../Component/Sidebar";
-import { Store } from "../Store";
-import "../Css/SellerDashboard.css";
-import axios from "axios";
 import AccountBalanceIcon from "@mui/icons-material/AccountBalance";
 import AddAlertIcon from "@mui/icons-material/AddAlert";
-import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
 import BatchPredictionIcon from "@mui/icons-material/BatchPrediction";
+import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantityLimits";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
 import AreacChart from "../Component/AreacChart";
 import Notification from "../Component/Notification";
+import Sidebar from "../Component/Sidebar";
+import "../Css/SellerDashboard.css";
+import { Store } from "../Store";
 
 function AdminDashboard() {
   const { state } = useContext(Store);
@@ -69,29 +69,34 @@ function AdminDashboard() {
 
   return (
     <div>
-      <Sidebar />
-
-      <div className="dashBoard">
-        <div className="Order_information">
-          <div className="Order_card_1">
+      <div className="hidden lg:block">
+        <Sidebar />
+      </div>
+      <div className="lg:ml-52">
+        <div className="Order_information flex flex-col justify-center items-center lg:flex-row lg:justify-between ">
+          <div className="flex p-3 h-1/4 py-12 w-10/12 lg:w-1/5  text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl mb-4">
             <div className="left">
-              <h1 className=" text-3xl font-extrabold text-center">{countProduct}</h1>
+              <h1 className=" text-3xl font-extrabold text-center">
+                {countProduct}
+              </h1>
               <p>Total Product</p>
             </div>
             <div className="right">
               <ProductionQuantityLimitsIcon />
             </div>
           </div>
-          <div className="Order_card_1">
+          <div className="flex p-3 h-1/6 py-12 w-10/12  lg:w-1/5 text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl my-4">
             <div className="left">
-              <h1 className="text-3xl font-extrabold text-center ">{countOrder}</h1>
+              <h1 className="text-3xl font-extrabold text-center ">
+                {countOrder}
+              </h1>
               <p>Product Orders</p>
             </div>
             <div className="right">
-              <AddAlertIcon />
+              <AddAlertIcon className="" />
             </div>
           </div>
-          <div className="Order_card_1">
+          <div className="flex p-3 h-1/4 py-12 w-10/12 lg:w-1/5 text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl my-4">
             <div className="left">
               {totalSelles.map((item) => (
                 <h1 className=" text-3xl font-extrabold text-center ">
@@ -99,28 +104,30 @@ function AdminDashboard() {
                 </h1>
               ))}
 
-              <p>Total Selles</p>
+              <p>Total Sales</p>
             </div>
             <div className="right">
               <AccountBalanceIcon />
             </div>
           </div>
-          <div className="Order_card_1">
+          <div className="flex p-3 h-1/6 py-12 w-10/12 lg:w-1/5 text-violet-600 bg-white  items-center justify-around rounded-lg drop-shadow-xl my-4">
             <div className="left">
-               <h1 className="text-3xl font-extrabold text-center ">{pandingOrder}</h1>
-              <p>Panding Order</p>
+              <h1 className="text-3xl font-extrabold text-center ">
+                {pandingOrder}
+              </h1>
+              <p>Pending Order</p>
             </div>
-            <div className="right">
+            <div className="right lg:block">
               <BatchPredictionIcon />
             </div>
           </div>
         </div>
-        <div className="product_and_order_section">
-          <div className="product">
+        <div className="product_and_order_section flex flex-col lg:flex-row">
+          <div className="product pb-4">
+            <h2 className="text-lg font-semibold pb-2">Monthly Sales</h2>
             <AreacChart />
-            <h4>Monthly Selles</h4>
           </div>
-          <div className=" border-2 w-4/5 mr-6 rounded-lg ">
+          <div className=" border-2 w-full mr-6 rounded-lg">
             <Notification />
           </div>
         </div>
