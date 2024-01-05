@@ -17,7 +17,7 @@ function TopRatedProduct() {
 
   return (
     <div className=" mt-2 mb-2 ">
-      <div className="flex justify-between items-center px-3 py-2 bg-slate-100 mx-1 rounded-md">
+      <div className="flex my-4 justify-between items-center px-3 py-2 bg-slate-100 mx-1 rounded-md">
         <h3 className="">Top Rated Product</h3>
         <button
           type="button"

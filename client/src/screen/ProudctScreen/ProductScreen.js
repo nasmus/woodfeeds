@@ -121,9 +121,9 @@ function ProductScreen() {
           <h1>{product.name}</h1>
           <p>
             <Rating rating={product.rating} numReviews={product.numReviews} />
-            {product.numReviews ? product.numReviews : 0} reviews | {product.countInStock} Stock
+            <b className=" text-cyan-500 " >{product.numReviews ? product.numReviews : 0} reviews</b>  | <b className=" text-orange-600 " >{product.countInStock} Stock</b> 
           </p>
-          <h5>${product.price}</h5>
+          <h5> <i class="fa-solid fa-bangladeshi-taka-sign"></i> {product.price}</h5>
           <h4>Product Features</h4>
           <ul>
             {/* <li style={{ listStyleType: "square" }}>
