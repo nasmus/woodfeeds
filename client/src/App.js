@@ -7,6 +7,7 @@ import HomeScreen from "./screen/HomeScreen";
 import ProductScreen from "./screen/ProudctScreen/ProductScreen";
 //import { Store } from './Store';
 import { useState } from "react";
+import ReturnRefund from './pages/ReturnRefund';
 import CategoryHeader from "./components/Header/CategoryHeader";
 import Header from "./components/Header/Header";
 import AboutUs from "./pages/AboutUs";
@@ -66,7 +67,7 @@ function App() {
             <Route path="/faq" element={<FAQ />} />
             <Route path="/about-us" element={<AboutUs />} />
             <Route path="/terms-conditions" element={<TermsConditions />} />
-            <Route path="/return-refund" element={<returnRefund />} />
+            <Route path="/return-refund" element={<ReturnRefund />} />
             <Route path="/category/:id/:slug" element={ <CategoryPage /> } />
             <Route path="/reset_password/:token" element={ <ResetPassword /> } />
             <Route path="/forgot-password" element={ <SendEmail /> } />

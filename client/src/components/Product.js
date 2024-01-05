@@ -44,7 +44,7 @@ function Product(props) {
         <span>
           <Rating rating={product.rating} numReviews={product.numReviews ? product.numReviews : 0} />
         </span>
-        <p>${product.price}</p>
+        <p> <i class="fa-solid fa-bangladeshi-taka-sign"></i> {product.price}</p>
         {/* {product.countInStock === 0 ? (
           
           <Button

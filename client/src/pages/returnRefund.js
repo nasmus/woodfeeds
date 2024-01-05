@@ -1,4 +1,4 @@
-export default function returnRefund() {
+export default function ReturnRefund() {
   return (
     <div>
       Returns Policy 1.If your item is faulty/harmed or mistaken/deficient at

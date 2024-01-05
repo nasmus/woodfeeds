@@ -36,7 +36,7 @@ function CategoryProduct() {
 
   return (
     <div className=" mt-2 mb-2 ">
-      <div className="flex justify-between items-center px-3 py-2 bg-slate-100 mx-1 rounded-md">
+      <div className="flex my-3 justify-between items-center px-3 py-2 bg-slate-100 mx-1 rounded-md">
         <h3 className="">Book Shelf</h3>
         <button
           type="button"
@@ -68,7 +68,7 @@ function CategoryProduct() {
         </div>
       </div>
 
-      <div className="flex justify-between items-center px-3 py-2 bg-slate-100 mx-1 rounded-md">
+      <div className="flex my-3 justify-between items-center px-3 py-2 bg-slate-100 mx-1 rounded-md">
         <h3 className="">Wall Corner</h3>
         <button
           type="button"
@@ -83,7 +83,7 @@ function CategoryProduct() {
         ))}
       </div>
 
-      <div className="flex justify-between items-center px-3 py-2 bg-slate-100 mx-1 rounded-md">
+      <div className="flex my-3 justify-between items-center px-3 py-2 bg-slate-100 mx-1 rounded-md">
         <h3 className="">Bad Shide shelf</h3>
         <button
           type="button"
