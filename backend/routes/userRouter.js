@@ -2,7 +2,7 @@ import bcrypt from 'bcryptjs';
 import express from "express";
 import expressAsyncHandler from 'express-async-handler';
 import jwt from 'jsonwebtoken';
-import mailgun from "mailgun.js";
+import nodemailer from 'nodemailer';
 import User from "../models/userModel.js";
 import { baseUrl, generateToken, isAuth } from '../utils.js';
 const userRouter = express.Router();
@@ -114,7 +114,8 @@ userRouter.put(
 userRouter.post(
   '/forget-password',
   expressAsyncHandler(async (req, res) => {
-    const user = await User.findOne({ email: req.body.email });
+    const email = req.body.email.toLowerCase();
+    const user = await User.findOne({ email: email });
 
     if (user) {
       const token = jwt.sign({ _id: user._id }, process.env.JWT_SECRET, {
@@ -126,24 +127,48 @@ userRouter.post(
       //reset link
       console.log(`${baseUrl()}/reset_password/${token}`);
 
-      mailgun()
-        .messages()
-        .send(
-          {
-            from: `nasmus_shahadat@nasmus.xyz`,
-            to: `${user.name} <${user.email}>`,
-            subject: `Reset Password`,
-            html: ` 
-             <p>Please Click the following link to reset your password:</p> 
-             <a href="${baseUrl()}/reset_password/${token}"}>Reset Password</a>
-             `,
-          },
-          (error, body) => {
-            console.log(error);
-            console.log(body);
-          }
-        );
-      res.send({ message: 'We sent reset password link to your email.' });
+      // mailgun()
+      //   .messages()
+      //   .send(
+      //     {
+      //       from: `nasmus_shahadat@nasmus.xyz`,
+      //       to: `${user.name} <${user.email}>`,
+      //       subject: `Reset Password`,
+      //       html: ` 
+      //        <p>Please Click the following link to reset your password:</p> 
+      //        <a href="${baseUrl()}/reset_password/${token}"}>Reset Password</a>
+      //        `,
+      //     },
+      //     (error, body) => {
+      //       console.log(error);
+      //       console.log(body);
+      //     }
+      //   );
+      
+      let transporter = nodemailer.createTransport({
+        service: "gmail",
+        auth: {
+          user: process.env.GMAIL_USER,
+          pass: process.env.GMAIL_PASSWORD,
+        },
+      });
+
+      let mailOptions = {
+        from: "woodfeeds@gmail.com",
+        to: req.body.email,
+        subject: "Reset Password - woodfeeds.com",
+        text: `Please Click the following link to reset your password: ${baseUrl()}/reset_password/${token}`,
+      };
+
+      transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+          console.log(error);
+        } else {
+           res.send({ message: "We sent reset password link to your email." });
+        }
+      });
+      
+      // res.send({ message: "We sent reset password link to your email." });
     } else {
       res.status(404).send({ message: 'User not found' });
     }
