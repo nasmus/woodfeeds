@@ -1,7 +1,7 @@
 import express from "express";
 import expressAsyncHandler from "express-async-handler";
-import { isAuth } from "../../../utils.js";
 import Product from "../../../models/productModel.js";
+import { isAuth } from "../../../utils.js";
 
 const review = express.Router();
 
@@ -39,6 +39,23 @@ review.post(
       res.status(404).send({ message: "product not found" });
     }
   })
+);
+
+review.get(
+  '/find_user/:prod_id',
+  isAuth,
+  expressAsyncHandler(async (req, res) => {
+    const productId = req.params.prod_id;
+    const product = await Product.findById(productId);
+    if (product) {
+      if (product.reviews.find((x) => x.name === req.user.name)) {
+        return res.status(200).send(false);
+      } else {
+        return res.status(200).send(true);
+      }
+    }
+  }
+  )
 );
 
 export default review;
