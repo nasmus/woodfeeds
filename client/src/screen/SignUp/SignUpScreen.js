@@ -35,7 +35,13 @@ function SignUpScreen() {
         });
         ctxDispatch({ type: "USER_SIGNIN", payload: data });
         localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate(redirect || "/");
+        const cartItem = localStorage.getItem('cartItems');
+        if(cartItem.length > 0){
+          navigate('/shipping')
+        } else{
+          navigate(redirect || "/");
+        }
+        
       } catch (err) {
         toast.error(getError(err));
       }
