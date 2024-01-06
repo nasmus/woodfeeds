@@ -7,10 +7,10 @@ import HomeScreen from "./screen/HomeScreen";
 import ProductScreen from "./screen/ProudctScreen/ProductScreen";
 //import { Store } from './Store';
 import { useState } from "react";
-import ReturnRefund from './pages/ReturnRefund';
 import CategoryHeader from "./components/Header/CategoryHeader";
 import Header from "./components/Header/Header";
 import AboutUs from "./pages/AboutUs";
+import ReturnRefund from './pages/ReturnRefund';
 import TermsConditions from "./pages/Termsconditions";
 import FAQ from "./pages/faq";
 import CartScreen from "./screen/CartScreen";
@@ -36,7 +36,7 @@ function App() {
 
   const handleClick = () => {
     setIsVisible(!isVisible);
-    console.log(isVisible);
+    
   };
 
   return (

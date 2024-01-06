@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Store } from "../Store";
 import '../css/Product.css';
 import Rating from "./Review/Rating";
@@ -18,7 +19,7 @@ function Product(props) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
-      window.alert("Sorry Bro !");
+      toast.error('Sorry.. Product out of stock');
       return;
     }
     ctxDispatch({
