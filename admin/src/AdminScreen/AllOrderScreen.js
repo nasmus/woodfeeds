@@ -1,8 +1,8 @@
-import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { Store } from "../Store";
-import Sidebar from "../Component/Sidebar";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "../Component/Sidebar";
+import { Store } from "../Store";
 
 function AllOrderScreen() {
   const { state } = useContext(Store);
@@ -46,7 +46,10 @@ function AllOrderScreen() {
                 user ID
               </th>
               <th scope="col" class="px-6 py-3">
-                Order time
+                Order Date
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Order Time
               </th>
               <th scope="col" class="px-6 py-3">
                 Action
@@ -65,7 +68,8 @@ function AllOrderScreen() {
                 <td class="px-6 py-4">{item.paymentMethod}</td>
                 <td class="px-6 py-4">{item.itemsPrice}</td>
                 <td class="px-6 py-4">{item.user}</td>
-                <td class="px-6 py-4">{item.createdAt}</td>
+                <td class="px-6 py-4">{item.createdAt.slice(0,10)}</td>
+                <td class="px-6 py-4">{item.createdAt.slice(11,19)}</td>
                 <td className="px-6 py-4">
                   <button
                     className="px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r rounded-lg from-cyan-400 via-cyan-500 to-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 "
