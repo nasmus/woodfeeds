@@ -10,7 +10,7 @@ function AllOrderScreen() {
   const [allOrder, setAllOrder] = useState([]);
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
-  
+  console.log(allOrder);
 
   useEffect(() => {
     const fatchData = async () => {
@@ -40,16 +40,19 @@ function AllOrderScreen() {
                 Payment
               </th>
               <th scope="col" class="px-6 py-3">
-                itemsPrice
+                items Price
               </th>
               <th scope="col" class="px-6 py-3">
-                user ID
+                User name
               </th>
               <th scope="col" class="px-6 py-3">
                 Order Date
               </th>
               <th scope="col" class="px-6 py-3">
                 Order Time
+              </th>
+              <th scope="col" class="px-6 py-3">
+                Order Status
               </th>
               <th scope="col" class="px-6 py-3">
                 Action
@@ -67,9 +70,17 @@ function AllOrderScreen() {
                 </th>
                 <td class="px-6 py-4">{item.paymentMethod}</td>
                 <td class="px-6 py-4">{item.itemsPrice}</td>
-                <td class="px-6 py-4">{item.user}</td>
-                <td class="px-6 py-4">{item.createdAt.slice(0,10)}</td>
-                <td class="px-6 py-4">{item.createdAt.slice(11,19)}</td>
+                <td class="px-6 py-4">{item.shippingAddress.fullName}</td>
+                <td class="px-6 py-4">{item.createdAt.slice(0, 10)}</td>
+                <td class="px-6 py-4">{item.createdAt.slice(11, 19)}</td>
+                <td class="px-6 py-4">
+                  {/* <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">
+                    Red
+                  </span> */}
+                  <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">
+                    Delivered
+                  </span>
+                </td>
                 <td className="px-6 py-4">
                   <button
                     className="px-3 py-2 text-xs font-medium text-center text-white bg-gradient-to-r rounded-lg from-cyan-400 via-cyan-500 to-cyan-600 focus:ring-4 focus:outline-none focus:ring-blue-300 "
