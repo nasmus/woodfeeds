@@ -144,7 +144,7 @@ function SignUpScreen() {
                         Create an account
                       </button>
 
-                      <div className="text-center">
+                      <div className="text-center mt-3 ">
                         <p>
                           Already Have an account ?{" "}
                           <Link to={`/signin?redirect=${redirect}`}>
