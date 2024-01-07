@@ -16,6 +16,7 @@ import FAQ from "./pages/faq";
 import CartScreen from "./screen/CartScreen";
 import CategoryPage from "./screen/CategoryPage";
 import Footer from "./screen/FooterScreen/Footer";
+import NotFound from "./screen/NotFound";
 import OrderScreen from "./screen/Order/OrderScreen";
 import OrederHistoryScreen from "./screen/Order/OrederHistoryScreen";
 import PaymentMethodScreen from "./screen/Order/PaymentMethodScreen";
@@ -71,6 +72,7 @@ function App() {
             <Route path="/category/:id/:slug" element={ <CategoryPage /> } />
             <Route path="/reset_password/:token" element={ <ResetPassword /> } />
             <Route path="/forgot-password" element={ <SendEmail /> } />
+            <Route path="*" element={ <NotFound /> } />
           </Routes>
         </main>
         <footer className=" mt-16 ">
