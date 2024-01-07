@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, useReducer, useState } from 'react';
+import React, { useContext, useEffect, useReducer, useRef, useState } from 'react';
 
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useReactToPrint } from 'react-to-print';
 import Sidebar from '../Component/Sidebar';
 import { Store } from '../Store';
 import { getError } from "../utils";
@@ -17,7 +18,9 @@ const reducer = (state, action) => {
       default:
         return state;
     }
-  };
+};
+  
+
 
 function OrderDetails() {
 
@@ -31,6 +34,15 @@ function OrderDetails() {
     loading: true,
     orderDetail: [],
   });
+
+  const printRef = useRef();
+
+  const handlePrint = useReactToPrint({
+    content: () => printRef.current,
+ 
+  });
+
+
 
   useEffect(() => {
     const fatchData = async () => {
@@ -71,8 +83,8 @@ function OrderDetails() {
   }, [orderId, userInfo.token]);
 
   return (
-    <div className='lg:pl-52'>
-      <div className='hidden lg:block'>
+    <div className="lg:pl-52">
+      <div className="hidden lg:block">
         <Sidebar />
       </div>
 
@@ -81,7 +93,7 @@ function OrderDetails() {
           Order Details
         </h1>
         <div className="flex md:flex-col lg:w-1/5">
-          <form className='flex flex-col items-center' onSubmit={handleSubmit}>
+          <form className="flex flex-col items-center" onSubmit={handleSubmit}>
             <select
               name="rderStatus"
               id="status"
@@ -100,7 +112,7 @@ function OrderDetails() {
         </div>
       </div>
 
-      <div className="px-5 py-5 md:flex w-full lg:w-10/12 ">
+      <div ref={printRef} className="px-5 py-5 md:flex w-full lg:w-10/12 ">
         <section className="md:w-4/5 md:px-6 text-black">
           <div className="relative overflow-x-auto py-3 md:py-6">
             <table className="w-full text-sm text-left rtl:text-right text-black font-medium">
@@ -158,8 +170,8 @@ function OrderDetails() {
             </table>
           </div>
         </section>
-        <section className="py-6">
-          <div className="bg-gradient-to-tr from-gray-700 to-gray-600 text-white rounded-lg w-11/12 p-5">
+        <section className="py-6 ">
+          <div className="bg-gradient-to-tr from-gray-700 to-gray-600 text-white rounded-lg w-11/12 p-5 print:w-full">
             <h1 className="text-4xl  font-bold">Address Info.</h1>
             <div className="pt-6">
               <div className="text-lg">
@@ -212,7 +224,10 @@ function OrderDetails() {
                 </div>
               </div>
               <div className="flex justify-center py-1">
-                <button className="text-xl border px-6 py-1 rounded-full  ">
+                <button
+                  onClick={handlePrint}
+                  className="text-xl border px-6 py-1 rounded-full print:hidden  "
+                >
                   Invoice
                 </button>
               </div>
