@@ -1,6 +1,6 @@
 export default function FAQ() {
   return (
-    <div className="px-32">
+    <div className="px-10 lg:px-32">
       <h3 className="text-center font-semibold">
         Frequently Asked Questions (FAQ)
       </h3>
@@ -59,8 +59,8 @@ export default function FAQ() {
       </p>
       <h5 className="font-semibold">What payment methods do you accept?</h5>
       <p>
-        We accept various payment methods, including bKash, Nagad and Cash on delivery. You can find the complete list
-        during the checkout process.
+        We accept various payment methods, including bKash, Nagad and Cash on
+        delivery. You can find the complete list during the checkout process.
       </p>
       <h5 className="font-semibold">How can I contact customer support?</h5>
       <p>
