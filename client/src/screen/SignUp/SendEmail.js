@@ -27,7 +27,6 @@ function SendEmail() {
       axios.post('/api/users/forget-password', {
         email,
       }).then(res => {
-        console.log(res.data.message);
         if (res.data.message) {
           toast.success(res.data.message);
         }

@@ -1,42 +1,89 @@
 export default function TermsConditions() {
   return (
-    <div>
-      Returns Policy 1.If your item is faulty/harmed or mistaken/deficient at
-      the hour of conveyance, if you don't mind, please get in touch with us
-      inside the pertinent return window. Your item might be qualified for
-      discount or substitution relying upon the item’s class and condition. 2.
-      Please note that a few items are not qualified for arrival if the item is
-      "Never again required" 3. For gadget-related issues after use or the lapse
-      of the arrival window, we will allude you to the brand guarantee focus (if
-      relevant). 4. Please note that you should keep and be able to provide
-      proper documentation and proof about your return/refund claim (i.e.
-      unboxing video, receiving invoice, etc.). Refund of advance payment 1.
-      Customers can only claim a refund after 10 days of order placement and in
-      the case of non-delivery of the order. 2. Orders already shipped from the
-      warehouse or seller after spending 10 days in transit will be considered
-      undelivered, and customers may wait for the parcel or claim for a refund.
-      3. Refund claims will be processed within 48 hours from claim time. 4.
-      After initiating the payment from E-valy.com ltd./ Marchent end, it may
-      take up to 21 days or as per the gateway’s timeline. 5. The refund amount
-      will be the same as the customer paid for the order. 6. In case of dispute
-      (damaged, incorrect, defective products) related refund, the delivery
-      charge may get deducted if the product is not returned. 7. Refunds will be
-      sent by the same channel the customer used for the payment of the order.
-      Requests for payment via different channels will not be entertained.
-      Refund of Partial payment 1. Partial payment as Delivery Charge consists
-      of the excluded price of the product total amount. 2. A partial payment
-      refund can be claimed if the order is not confirmed after 48 hours of
-      order placement. 3. After initiating the payment from E-valy.com ltd./
-      Marchent end, it may take up to 21 days or as per the gateway’s timeline.
-      4. The refund amount will be the same as the customer paid for the order.
-      Cashback Offer 1. Cashback will be effective at the time of payment. 2.
-      MFS or card payment-based cashback will be sent to the MFS/Card account as
-      per the policy of MFS. Refund in case of full payment failure 1. Suppose
-      the customer fails to pay the remaining amount after 7 days of
-      confirmation of the order. In that case, the order will be automatically
-      cancelled, and a refund of the partial amount will be initiated. 2. In
-      payment of the partial amount Refund of Partial payment, steps will be
-      applicable.
+    <div className="px-32">
+      <h3 className="text-center font-semibold">Terms and Conditions</h3>
+      <p>
+        These Terms and Conditions are entered into by and between you and
+        WoodFeeds. This Agreement sets forth the terms and conditions of your
+        use of the WoodFeeds website and the products and services offered by
+        WoodFeeds. By accessing or using the Services, you agree to be bound by
+        this Agreement. If you do not agree to these terms, please do not use
+        the Services.
+      </p>
+      <h5 className="font-semibold pb-3">1. Use of the Services</h5>
+      <p>
+        1.1 Eligibility: You must be at least 18 years old to use our Services.
+        By using the Services, you represent and warrant that you are at least
+        18 years old.
+      </p>
+      <p>
+        1.2 Account: To access certain features of the Services, you may be
+        required to create an account. You are responsible for maintaining the
+        confidentiality of your account information and for all activities that
+        occur under your account.
+      </p>
+      <h5 className="font-semibold pb-3">2. Products and Orders</h5>
+      <p>
+        2.1 Product Descriptions: We strive to provide accurate descriptions and
+        images of our products. However, we do not warrant that product
+        descriptions or other content on the Services are accurate, complete,
+        reliable, current, or error-free.
+      </p>
+      <p>
+        2.2 Orders: By placing an order through the Services, you agree to
+        provide accurate and complete information. We reserve the right to
+        cancel or refuse any order for any reason at any time.
+      </p>
+      <h5 className="font-semibold pb-3">3. Pricing and Payments</h5>
+      <p>
+        3.1 Pricing: Prices for products and services are subject to change
+        without notice. All prices are in the currency specified on the website.
+      </p>
+      <p>
+        3.2 Payment: We accept various payment methods as specified on the
+        website. By providing a payment method, you represent and warrant that
+        you are authorized to use the designated payment method.
+      </p>
+      <h5 className="font-semibold pb-3">4. Intellectual Property</h5>
+      <p>
+        4.1 Content: All content on the Services, including text, graphics,
+        logos, images, and software, is the property of WoodFeeds and is
+        protected by copyright, trademark, and other intellectual property laws.
+      </p>
+
+      <p>
+        4.2 Limited License: You are granted a limited, non-exclusive, and
+        non-transferable license to access and use the Services for personal and
+        non-commercial purposes.
+      </p>
+      <h5 className="font-semibold pb-3">5. Privacy</h5>
+      <p>
+        Our Privacy Policy governs the collection, use, and disclosure of your
+        personal information. By using the Services, you agree to the terms of
+        our Privacy Policy.
+      </p>
+      <h5 className="font-semibold pb-3">6. Termination</h5>
+      <p>
+        We reserve the right to terminate or suspend your account and access to
+        the Services at our sole discretion, without notice, for any reason,
+        including violation of this Agreement.
+      </p>
+      <h5 className="font-semibold pb-3">7. Governing Law</h5>
+      <p>
+        This Agreement shall be governed by and construed in accordance with the
+        laws of the jurisdiction specified in our Privacy Policy.
+      </p>
+      <h5 className="font-semibold pb-3">8. Changes to the Agreement</h5>
+      <p>
+        We reserve the right to modify this Agreement at any time. Any changes
+        will be effective immediately upon posting on the Services. Your
+        continued use of the Services after the posting of changes constitutes
+        your acceptance of such changes.
+      </p>
+      <p>
+        If you have any questions about this Agreement, please contact us at
+        legal@woodfeeds.com.
+      </p>
     </div>
   );
 }
