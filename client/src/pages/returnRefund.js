@@ -1,42 +1,61 @@
 export default function ReturnRefund() {
   return (
-    <div>
-      Returns Policy 1.If your item is faulty/harmed or mistaken/deficient at
-      the hour of conveyance, if you don't mind, please get in touch with us
-      inside the pertinent return window. Your item might be qualified for
-      discount or substitution relying upon the item’s class and condition. 2.
-      Please note that a few items are not qualified for arrival if the item is
-      "Never again required" 3. For gadget-related issues after use or the lapse
-      of the arrival window, we will allude you to the brand guarantee focus (if
-      relevant). 4. Please note that you should keep and be able to provide
-      proper documentation and proof about your return/refund claim (i.e.
-      unboxing video, receiving invoice, etc.). Refund of advance payment 1.
-      Customers can only claim a refund after 10 days of order placement and in
-      the case of non-delivery of the order. 2. Orders already shipped from the
-      warehouse or seller after spending 10 days in transit will be considered
-      undelivered, and customers may wait for the parcel or claim for a refund.
-      3. Refund claims will be processed within 48 hours from claim time. 4.
-      After initiating the payment from E-valy.com ltd./ Marchent end, it may
-      take up to 21 days or as per the gateway’s timeline. 5. The refund amount
-      will be the same as the customer paid for the order. 6. In case of dispute
-      (damaged, incorrect, defective products) related refund, the delivery
-      charge may get deducted if the product is not returned. 7. Refunds will be
-      sent by the same channel the customer used for the payment of the order.
-      Requests for payment via different channels will not be entertained.
-      Refund of Partial payment 1. Partial payment as Delivery Charge consists
-      of the excluded price of the product total amount. 2. A partial payment
-      refund can be claimed if the order is not confirmed after 48 hours of
-      order placement. 3. After initiating the payment from E-valy.com ltd./
-      Marchent end, it may take up to 21 days or as per the gateway’s timeline.
-      4. The refund amount will be the same as the customer paid for the order.
-      Cashback Offer 1. Cashback will be effective at the time of payment. 2.
-      MFS or card payment-based cashback will be sent to the MFS/Card account as
-      per the policy of MFS. Refund in case of full payment failure 1. Suppose
-      the customer fails to pay the remaining amount after 7 days of
-      confirmation of the order. In that case, the order will be automatically
-      cancelled, and a refund of the partial amount will be initiated. 2. In
-      payment of the partial amount Refund of Partial payment, steps will be
-      applicable.
+    <div className="px-10 lg:px-32">
+      <h3 className="text-center font-semibold">Return & Refund Policy</h3>
+      <p>
+        Thank you for shopping at WoodFeeds. We appreciate your trust in us and
+        are committed to providing you with a seamless and satisfying shopping
+        experience. If, for any reason, you are not entirely satisfied with your
+        purchase, we're here to help.
+      </p>
+      <h5 className="font-semibold">Returns</h5>
+      <p>
+        You have 30 calendar days to return an item from the date you received
+        it. To be eligible for a return, your item must be unused, in the same
+        condition that you received it, and in the original packaging. Please
+        include a copy of your receipt or proof of purchase with the returned
+        item. To initiate a return, please contact our customer service team at
+        returns@woodfeeds.com. They will guide you through the return process
+        and provide you with the necessary instructions. Please do not send your
+        purchase back to the manufacturer. Once your return is received and
+        inspected, we will send you an email to notify you that we have received
+        your returned item. We will also notify you of the approval or rejection
+        of your refund. If approved, your refund will be processed, and a credit
+        will automatically be applied to your original method of payment within
+        7-10 business days.
+      </p>
+      <h5 className="font-semibold">Refunds</h5>
+      <p>
+        If you haven't received a refund within the specified period, please
+        check your bank account again. If the refund is still not reflected,
+        contact your credit card company or bank as processing times may vary.
+        If you've taken these steps and still have not received your refund,
+        please reach out to us at refunds@woodfeeds.com. Exchanges If you need
+        to exchange an item for a different one, contact our customer service
+        team at exchanges@woodfeeds.com. They will assist you in processing the
+        exchange and provide you with the necessary details.
+      </p>
+      <h5 className="font-semibold"> Return Shipping</h5>
+      <p>
+        You will be responsible for paying the shipping costs for returning your
+        item. Shipping costs are non-refundable. If you receive a refund, the
+        cost of return shipping will be deducted from your refund. If you are
+        shipping an item over $75, consider using a trackable shipping service
+        or purchasing shipping insurance. We don’t guarantee that we will
+        receive your returned item.
+      </p>
+      <h5 className="font-semibold"> Damaged or Defective Items</h5>
+      <p>
+        In the unfortunate event that you receive a damaged or defective item,
+        please contact us immediately at support@woodfeeds.com. We will guide
+        you through the process of returning the item and, if eligible, provide
+        you with a replacement or refund. WoodFeeds reserves the right to update
+        or modify this Return & Refund Policy at any time without prior notice.
+        By making a purchase on our website, you agree to the terms and
+        conditions outlined in this policy. If you have any further questions or
+        concerns, please don't hesitate to contact our customer service team at
+        support@woodfeeds.com. We are here to assist you in any way we can.
+      </p>
     </div>
   );
 }

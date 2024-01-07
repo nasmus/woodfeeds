@@ -1,45 +1,79 @@
 export default function FAQ() {
   return (
-    
-      <div>
-        Returns Policy 1.If your item is faulty/harmed or mistaken/deficient at
-        the hour of conveyance, if you don't mind, please get in touch with us
-        inside the pertinent return window. Your item might be qualified for
-        discount or substitution relying upon the item’s class and condition. 2.
-        Please note that a few items are not qualified for arrival if the item
-        is "Never again required" 3. For gadget-related issues after use or the
-        lapse of the arrival window, we will allude you to the brand guarantee
-        focus (if relevant). 4. Please note that you should keep and be able to
-        provide proper documentation and proof about your return/refund claim
-        (i.e. unboxing video, receiving invoice, etc.). Refund of advance
-        payment 1. Customers can only claim a refund after 10 days of order
-        placement and in the case of non-delivery of the order. 2. Orders
-        already shipped from the warehouse or seller after spending 10 days in
-        transit will be considered undelivered, and customers may wait for the
-        parcel or claim for a refund. 3. Refund claims will be processed within
-        48 hours from claim time. 4. After initiating the payment from
-        E-valy.com ltd./ Marchent end, it may take up to 21 days or as per the
-        gateway’s timeline. 5. The refund amount will be the same as the
-        customer paid for the order. 6. In case of dispute (damaged, incorrect,
-        defective products) related refund, the delivery charge may get deducted
-        if the product is not returned. 7. Refunds will be sent by the same
-        channel the customer used for the payment of the order. Requests for
-        payment via different channels will not be entertained. Refund of
-        Partial payment 1. Partial payment as Delivery Charge consists of the
-        excluded price of the product total amount. 2. A partial payment refund
-        can be claimed if the order is not confirmed after 48 hours of order
-        placement. 3. After initiating the payment from E-valy.com ltd./
-        Marchent end, it may take up to 21 days or as per the gateway’s
-        timeline. 4. The refund amount will be the same as the customer paid for
-        the order. Cashback Offer 1. Cashback will be effective at the time of
-        payment. 2. MFS or card payment-based cashback will be sent to the
-        MFS/Card account as per the policy of MFS. Refund in case of full
-        payment failure 1. Suppose the customer fails to pay the remaining
-        amount after 7 days of confirmation of the order. In that case, the
-        order will be automatically cancelled, and a refund of the partial
-        amount will be initiated. 2. In payment of the partial amount Refund of
-        Partial payment, steps will be applicable.
-      </div>
-    
+    <div className="px-32">
+      <h3 className="text-center font-semibold">
+        Frequently Asked Questions (FAQ)
+      </h3>
+      <p>
+        Welcome to the WoodFeeds FAQ page! Here, we address common queries to
+        provide you with quick and informative answers. If you don't find the
+        information you're looking for, feel free to reach out to our customer
+        support team at support@woodfeeds.com.
+      </p>
+      <h5 className="font-semibold">
+        What types of wood do you use in your products?
+      </h5>
+      <p>
+        We prioritize sustainability and use a variety of responsibly sourced
+        woods. Check the product descriptions for specific wood details.
+      </p>
+      <h5 className="font-semibold">How do I place an order?</h5>
+      <p>
+        Simply browse our website, add your desired items to the cart, and
+        proceed to checkout. Follow the steps to provide your shipping
+        information and payment details to complete the order.
+      </p>
+      <h5 className="font-semibold">
+        Can I modify or cancel my order after placing it?
+      </h5>
+      <p>
+        Once an order is confirmed, it is processed promptly. Unfortunately,
+        modifications or cancellations are not possible. Please double-check
+        your order before completing the purchase.
+      </p>
+      <h5 className="font-semibold">How can I track my order?</h5>
+      <p>
+        Once your order is shipped, you'll receive a confirmation email with a
+        tracking number and a link to track your package. You can also log in to
+        your WoodFeeds account to view order status.
+      </p>
+      <h5 className="font-semibold">What is your return policy?</h5>
+      <p>
+        We accept returns within 30 days of the delivery date. Please refer to
+        our detailed Return & Refund Policy for information on how to initiate a
+        return.
+      </p>
+      <h5 className="font-semibold">Are your products pre-assembled?</h5>
+      <p>
+        Product assembly requirements vary. Some items come fully assembled,
+        while others may require minimal assembly. Check the product description
+        for specific details or contact our support team for assistance.
+      </p>
+      <h5 className="font-semibold">
+        How can I care for and maintain my wooden furniture?
+      </h5>
+      <p>
+        Generally, avoid exposure to direct sunlight, excessive moisture, and
+        extreme temperatures. Regularly clean with a soft, damp cloth to
+        maintain the wood's natural beauty.
+      </p>
+      <h5 className="font-semibold">What payment methods do you accept?</h5>
+      <p>
+        We accept various payment methods, including bKash, Nagad and Cash on delivery. You can find the complete list
+        during the checkout process.
+      </p>
+      <h5 className="font-semibold">How can I contact customer support?</h5>
+      <p>
+        For any further assistance or inquiries, please email our customer
+        support team at support@woodfeeds.com. We aim to respond promptly and
+        help with any questions you may have.
+      </p>
+
+      <p>
+        We hope this FAQ section has addressed your queries. If you need
+        additional information or have specific concerns, don't hesitate to
+        contact us. Thank you for choosing WoodFeeds!
+      </p>
+    </div>
   );
 }

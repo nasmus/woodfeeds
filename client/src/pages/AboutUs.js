@@ -1,6 +1,6 @@
 export default function AboutUs() {
   return (
-    <div>
+    <div className="px-32">
       Returns Policy 1.If your item is faulty/harmed or mistaken/deficient at
       the hour of conveyance, if you don't mind, please get in touch with us
       inside the pertinent return window. Your item might be qualified for
