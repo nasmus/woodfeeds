@@ -5,7 +5,7 @@ import ProductionQuantityLimitsIcon from "@mui/icons-material/ProductionQuantity
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import AreacChart from "../Component/AreacChart";
-import Notification from "../Component/Notification";
+import Notification from '../Component/Notification';
 import Sidebar from "../Component/Sidebar";
 import "../Css/SellerDashboard.css";
 import { Store } from "../Store";
@@ -74,7 +74,7 @@ function AdminDashboard() {
       </div>
       <div className="lg:ml-52">
         <div className="Order_information flex flex-col justify-center items-center lg:flex-row lg:justify-between ">
-          <div className="flex p-3 h-1/4 py-12 w-10/12 lg:w-1/5  text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl mb-4">
+          <div className="flex p-3 h-1/4 py-12 lg:py-7 w-10/12 lg:w-1/5  text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl mb-4">
             <div className="left">
               <h1 className=" text-3xl font-extrabold text-center">
                 {countProduct}
@@ -85,7 +85,7 @@ function AdminDashboard() {
               <ProductionQuantityLimitsIcon />
             </div>
           </div>
-          <div className="flex p-3 h-1/6 py-12 w-10/12  lg:w-1/5 text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl my-4">
+          <div className="flex p-3 h-1/6 py-12 w-10/12 lg:py-7   lg:w-1/5 text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl my-4">
             <div className="left">
               <h1 className="text-3xl font-extrabold text-center ">
                 {countOrder}
@@ -96,7 +96,7 @@ function AdminDashboard() {
               <AddAlertIcon className="" />
             </div>
           </div>
-          <div className="flex p-3 h-1/4 py-12 w-10/12 lg:w-1/5 text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl my-4">
+          <div className="flex p-3 h-1/4 py-12 w-10/12 lg:py-7  lg:w-1/5 text-violet-600 bg-white justify-around items-center rounded-lg drop-shadow-xl my-4">
             <div className="left">
               {totalSelles.map((item) => (
                 <h1 className=" text-3xl font-extrabold text-center ">
@@ -110,7 +110,7 @@ function AdminDashboard() {
               <AccountBalanceIcon />
             </div>
           </div>
-          <div className="flex p-3 h-1/6 py-12 w-10/12 lg:w-1/5 text-violet-600 bg-white  items-center justify-around rounded-lg drop-shadow-xl my-4">
+          <div className="flex p-3 h-1/6 py-12 w-10/12 lg:py-7  lg:w-1/5 text-violet-600 bg-white  items-center justify-around rounded-lg drop-shadow-xl my-4">
             <div className="left">
               <h1 className="text-3xl font-extrabold text-center ">
                 {pandingOrder}

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import ListGroup from "react-bootstrap/ListGroup";
 import { useNavigate, useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 import { Store } from "../../Store";
 import LoadingBox from "../../components/LoadingBox";
 import MessageBox from "../../components/MessageBox";
@@ -74,7 +75,7 @@ function ProductScreen() {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
-      window.alert("Sorry, Product is out of stock");
+      toast.error("Sorry, Product is out of stock");
       return;
     }
     ctxDispatch({

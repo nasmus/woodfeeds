@@ -9,12 +9,14 @@ function ShipingAddressScreen() {
     userInfo,
     cart: { shippingAddress, paymentMethod, cartItems },
   } = state;
+  const localData = JSON.parse(localStorage.getItem('userInfo'));
+  
   const navigate = useNavigate();
 
    const [address, setAddress] = useState(shippingAddress.address || "");
    const [city, setCity] = useState(shippingAddress.city || "");
    const [distric, setDistric] = useState(shippingAddress.distric || "");
-   const [phoneNumber, setPhoneNumber] = useState(
+   const [phoneNumber, setPhoneNumber] = useState( localData.phone ||
      shippingAddress.phoneNumber || ""
    );
 
@@ -56,8 +58,8 @@ function ShipingAddressScreen() {
       toast.error('Invalid phone number!');
     }
   };
-  const [fullName, setFullName] = useState(shippingAddress.fullName || "");
- 
+  const [fullName, setFullName] = useState( localData.name || shippingAddress.fullName || "");
+
 
   // Payment method
 
