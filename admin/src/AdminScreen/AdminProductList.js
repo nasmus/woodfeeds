@@ -12,6 +12,8 @@ function AdminProductList() {
   const [allProduct, setAllProduct] = useState([]);
   const params = useParams();
   const { id: productId } = params;
+  const [currentPage, setCurrentPage] = useState(1);
+  const [productsPerPage] = useState(10);
 
   useEffect(() => {
     const fatchDate = async () => {
@@ -22,6 +24,18 @@ function AdminProductList() {
     };
     fatchDate();
   }, [userInfo.token]);
+
+  // Calculate the indexes for the products to be displayed on the current page
+  const indexOfLastProduct = currentPage * productsPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
+  const currentProducts = allProduct.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <Sidebar />
@@ -220,7 +234,7 @@ function AdminProductList() {
               </tr>
             </thead>
             <tbody>
-              {allProduct.map((item, index) => {
+              {currentProducts.map((item, index) => {
                 return (
                   <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                     <th>
@@ -260,6 +274,16 @@ function AdminProductList() {
               })}
             </tbody>
           </table>
+          {/* Pagination */}
+      <div className="flex justify-center items-center pt-4">
+        {Array.from({
+          length: Math.ceil(allProduct.length / productsPerPage),
+        }).map((_, index) => (
+          <button className="px-3 mr-1 py-2 text-xs font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700  focus:outline-none focus:ring-blue-300 " key={index} onClick={() => paginate(index + 1)}>
+             <b>{index + 1}</b>
+          </button>
+        ))}
+      </div>
         </div>
       </div>
     </div>
