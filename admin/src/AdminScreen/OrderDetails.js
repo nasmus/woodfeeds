@@ -112,7 +112,7 @@ function OrderDetails() {
         </div>
       </div>
 
-      <div ref={printRef} className="px-5 py-5 md:flex w-full lg:w-10/12 ">
+      <div className=" px-5 py-5 md:flex w-full lg:w-10/12 ">
         <section className="md:w-4/5 md:px-6 text-black">
           <div className="relative overflow-x-auto py-3 md:py-6">
             <table className="w-full text-sm text-left rtl:text-right text-black font-medium">
@@ -220,7 +220,7 @@ function OrderDetails() {
 
                 <div className="flex py-3 text-emerald-500 justify-between">
                   <p className=" font-bold text-2xl">Total amount: </p>
-                  <p className="font-bold text-2xl ">$545</p>
+                  <p className="font-bold text-2xl ">৳545</p>
                 </div>
               </div>
               <div className="flex justify-center py-1">
@@ -234,6 +234,101 @@ function OrderDetails() {
             </div>
           </div>
         </section>
+      </div>
+      <div ref={printRef} className="hidden print:block mx-28 text-black">
+        <h2 className="text-6xl pt-10 text-black font-semibold text-center">
+          woodfeeds.com
+        </h2>
+        <div className="flex pt-10 justify-between">
+          <h1 className=" text-4xl font-extralight">INVOICE</h1>
+          <div className="text-slate-500">
+            <p>Kazipur, Sirajganj, 6710</p>
+            <p> Mob:01655555555 </p>
+          </div>
+        </div>
+        <div className="pt-14 flex justify-between  text-slate-500">
+          <div className="flex">
+            <div className="">
+              <h5 className="text-black font-semibold me-5">Bill to:</h5>
+            </div>
+            <div>
+              
+              <p>
+                {orderDetail.shippingAddress &&
+                  orderDetail.shippingAddress.fullName}
+              </p>
+              <p>
+                {orderDetail.shippingAddress &&
+                  orderDetail.shippingAddress.address}
+              </p>
+              <p>
+                <span>City: </span>
+                {orderDetail.shippingAddress &&
+                  orderDetail.shippingAddress.city}
+              </p>
+              <p>
+                {orderDetail.shippingAddress &&
+                  orderDetail.shippingAddress.phoneNumber}
+              </p>
+            </div>
+          </div>
+          <div className="flex ">
+            <div className="text-black font-semibold me-5">Date:</div>
+            <div>{orderDetail.updatedAt.slice(0, 10)}</div>
+          </div>
+        </div>
+
+        <div class="relative  sm:rounded-lg mt-14">
+          <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+            <thead class="text-xs text-gray-700 uppercase dark:bg-gray-700 dark:text-gray-400">
+              <tr>
+                <th scope="col" class="px-3 py-1">
+                  Item
+                </th>
+                <th scope="col" class="px-3 py-1">
+                  Description
+                </th>
+                <th scope="col" class="px-3 py-1">
+                  Qty
+                </th>
+                <th scope="col" class="px-3 py-1">
+                  Unit Price
+                </th>
+                <th scope="col" class="px-3 py-1">
+                  Amount
+                </th>
+              </tr>
+            </thead>
+            {orderDetail.orderItems &&
+              orderDetail.orderItems.map((item) => {
+                return (
+                  <tbody>
+                    <tr class="bg-white border-b ">
+                      <td class="p-3">
+                        <img
+                          src={`/images/${item.image}`}
+                          alt=""
+                          className="w-8 h-8"
+                        />
+                      </td>
+                      <th
+                        scope="row"
+                        class="p-3 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+                      >
+                        {item.name.slice(0, 50)}
+                      </th>
+                      <td class="p-3">{item.quantity}</td>
+                      <td class="p-3">৳{item.price}</td>
+                      <td class="p-3">৳{item.price * item.quantity}</td>
+                    </tr>
+                  </tbody>
+                );
+              })}
+          </table>
+          <h4 className="text-2xl font-semibold  float-right me-6">
+            Subtotal : ৳125
+          </h4>
+        </div>
       </div>
     </div>
   );
