@@ -274,7 +274,7 @@ function OrderDetails() {
           </div>
           <div className="flex ">
             <div className="text-black font-semibold me-5">Date:</div>
-            <div>{orderDetail.updatedAt.slice(0, 10)}</div>
+            <div>{orderDetail.updatedAt && orderDetail.updatedAt.slice(0, 10)}</div>
           </div>
         </div>
 
