@@ -7,6 +7,8 @@ function AllUserListScreen() {
   const { state } = useContext(Store);
   const { userInfo } = state;
   const [allUserList, setAllUserList] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [userPerPage] = useState(10);
 
   useEffect(() => {
     const fatchData = async () => {
@@ -21,6 +23,19 @@ function AllUserListScreen() {
     };
     fatchData();
   }, [userInfo.token]);
+
+
+  // Calculate the indexes for the products to be displayed on the current page
+  const indexOfLastProduct = currentPage * userPerPage;
+  const indexOfFirstProduct = indexOfLastProduct - userPerPage;
+  const currentProducts = allUserList.slice(
+    indexOfFirstProduct,
+    indexOfLastProduct
+  );
+
+  // Change page
+  const paginate = (pageNumber) => setCurrentPage(pageNumber);
+
   return (
     <div>
       <Sidebar />
@@ -206,13 +221,13 @@ function AllUserListScreen() {
               <th scope="col" class="px-6 py-3">
                 time
               </th>
-              <th scope="col" class="px-6 py-3">
+              {/* <th scope="col" class="px-6 py-3">
                 Action
-              </th>
+              </th> */}
             </tr>
           </thead>
           <tbody>
-            {allUserList.map((item, index) => (
+            {currentProducts.map((item, index) => (
               <tr
                 key={index}
                 class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
@@ -227,18 +242,28 @@ function AllUserListScreen() {
                 <td class="px-6 py-4">{item.email}</td>
                 <td class="px-6 py-4">{item.phone}</td>
                 <td class="px-6 py-4">{item.createdAt}</td>
-                <td class="px-6 py-4">
+                {/* <td class="px-6 py-4">
                   <a
                     href="#"
                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
                   >
                     Edit
                   </a>
-                </td>
+                </td> */}
               </tr>
             ))}
           </tbody>
         </table>
+        {/* Pagination */}
+      <div className="flex justify-center items-center pt-4">
+        {Array.from({
+          length: Math.ceil(allUserList.length / userPerPage),
+        }).map((_, index) => (
+          <button className="px-3 mr-1 py-2 text-xs font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700  focus:outline-none focus:ring-blue-300 " key={index} onClick={() => paginate(index + 1)}>
+             <b>{index + 1}</b>
+          </button>
+        ))}
+      </div>
       </div>
     </div>
   );

@@ -10,6 +10,7 @@ function SignUpScreen() {
   const { search } = useLocation();
   const redirectUrl = new URLSearchParams(search).get("redirect");
   const redirect = redirectUrl ? redirectUrl : "/";
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -17,6 +18,8 @@ function SignUpScreen() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
+  //const cartItem = localStorage.getItem('cartItems')
+  var cartItem = JSON.parse( localStorage.getItem('cartItems') );
  
   const submitHendler = async (e) => {
     e.preventDefault();
@@ -35,7 +38,12 @@ function SignUpScreen() {
         });
         ctxDispatch({ type: "USER_SIGNIN", payload: data });
         localStorage.setItem("userInfo", JSON.stringify(data));
-        navigate(redirect || "/");
+        if(cartItem.length > 0){
+          navigate('/shipping')
+        } else{
+          navigate(redirect || "/");
+        }
+        
       } catch (err) {
         toast.error(getError(err));
       }
@@ -48,6 +56,7 @@ function SignUpScreen() {
     if (userInfo) {
       navigate(redirect);
     }
+    
   }, [navigate, redirect, userInfo]);
 
   const handlePhone = (e) => {
@@ -135,7 +144,7 @@ function SignUpScreen() {
                         Create an account
                       </button>
 
-                      <div className="text-center">
+                      <div className="text-center mt-3 ">
                         <p>
                           Already Have an account ?{" "}
                           <Link to={`/signin?redirect=${redirect}`}>
