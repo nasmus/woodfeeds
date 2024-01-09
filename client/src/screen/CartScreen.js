@@ -116,7 +116,7 @@ function CartScreen() {
                       Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
                       items) :{" "}
                       <span className="cartScreen_span">
-                        $
+                        ৳
                         {cartItems.reduce(
                           (a, c) => a + c.price * c.quantity,
                           0
