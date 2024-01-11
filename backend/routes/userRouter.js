@@ -10,7 +10,9 @@ const userRouter = express.Router();
 userRouter.post(
     '/signin',
     expressAsyncHandler(async (req,res) => {
-        const user = await User.findOne({phone:req.body.phone})
+      const user = await User.findOne({
+        $or: [{ phone: req.body.phone }, { email: req.body.phone }],
+      });
         if(user){
             if(bcrypt.compareSync(req.body.password, user.password)){
                 res.send({
@@ -62,10 +64,10 @@ userRouter.post(
             } else {
               res
                 .status(401)
-                .send({ message: "Email or Phone number already in use!" });
+                .send({ message: " 1 Email or Phone number already in use!" });
             }
           } else {
-            res.status(401).send({ message: "Email or Phone number already in use!" });
+            res.status(401).send({ message: " 2 Email or Phone number already in use!" });
           }
         })
     )

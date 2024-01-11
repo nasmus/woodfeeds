@@ -31,21 +31,27 @@ function Product(props) {
   return (
     <>
       <div className="product-card">
-        <Link to={`/product/${product.slug}`} >
-              <img
-                className="main-image"
-                src={`/images/${product.image}`}
-                //src={product.image}
-                alt={product.name}
-              />
-            </Link>
+        <Link to={`/product/${product.slug}`}>
+          <img
+            className="main-image"
+            src={`/images/${product.image}`}
+            //src={product.image}
+            alt={product.name}
+          />
+        </Link>
         <Link className="product-card_link" to={`/product/${product.slug}`}>
           <p>{product.name}</p>
         </Link>
         <span>
-          <Rating rating={product.rating} numReviews={product.numReviews ? product.numReviews : 0} />
+          <Rating
+            rating={product.rating}
+            numReviews={product.numReviews ? product.numReviews : 0}
+          />
         </span>
-        <p> <i class="fa-solid fa-bangladeshi-taka-sign"></i> {product.price}</p>
+        <p>
+          {/* <i class="fa-solid fa-bangladeshi-taka-sign"></i> */}৳
+          {product.price}
+        </p>
         {/* {product.countInStock === 0 ? (
           
           <Button
@@ -68,7 +74,6 @@ function Product(props) {
           </Button>
         )} */}
       </div>
-
     </>
   );
 }

@@ -33,7 +33,7 @@ function CartScreen() {
     ctxDispatch({ type: "CART_REMOVE_ITEM", payload: item });
   };
   const checkOutHandler = () => {
-    navigate("/signup?redirect=/shipping");
+    navigate("/shipping/?redirect=/placeorder");
   };
 
   return (
@@ -116,7 +116,7 @@ function CartScreen() {
                       Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
                       items) :{" "}
                       <span className="cartScreen_span">
-                        $
+                        ৳
                         {cartItems.reduce(
                           (a, c) => a + c.price * c.quantity,
                           0

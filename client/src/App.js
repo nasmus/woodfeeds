@@ -16,13 +16,14 @@ import FAQ from "./pages/faq";
 import CartScreen from "./screen/CartScreen";
 import CategoryPage from "./screen/CategoryPage";
 import Footer from "./screen/FooterScreen/Footer";
+import NotFound from "./screen/NotFound";
 import OrderScreen from "./screen/Order/OrderScreen";
 import OrederHistoryScreen from "./screen/Order/OrederHistoryScreen";
 import PaymentMethodScreen from "./screen/Order/PaymentMethodScreen";
 import PlaceOrderScreen from "./screen/Order/PlaceOrderScreen";
+import ShippingInformation from "./screen/Order/ShippingInformation";
 import ProfileScreen from "./screen/ProfileScreen";
 import SearchScreen from "./screen/SearchScreen";
-import ShipingAddressScreen from "./screen/ShipingAddressScreen";
 import ResetPassword from "./screen/SignUp/ResetPassword";
 import SendEmail from "./screen/SignUp/SendEmail";
 import SignInScreen from "./screen/SignUp/SignInScreen";
@@ -58,7 +59,7 @@ function App() {
             <Route path="/cart" element={<CartScreen />} />
             <Route path="/payment" element={<PaymentMethodScreen />} />
             <Route path="/placeorder" element={<PlaceOrderScreen />} />
-            <Route path="/shipping" element={<ShipingAddressScreen />} />
+            <Route path="/shipping" element={<ShippingInformation />} />
             <Route path="/order/:id" element={<OrderScreen />} />
             <Route path="/orderhistory" element={<OrederHistoryScreen />} />
             <Route path="/category/:id" element={<CategoryPage />} />
@@ -71,6 +72,7 @@ function App() {
             <Route path="/category/:id/:slug" element={ <CategoryPage /> } />
             <Route path="/reset_password/:token" element={ <ResetPassword /> } />
             <Route path="/forgot-password" element={ <SendEmail /> } />
+            <Route path="*" element={ <NotFound /> } />
           </Routes>
         </main>
         <footer className=" mt-16 ">
