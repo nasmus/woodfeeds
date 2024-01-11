@@ -80,7 +80,7 @@ export default function OrderHistoryScreen() {
                 <tr key={order._id}>
                   <td>{order._id}</td>
                   <td>{order.createdAt.substring(0, 10)}</td>
-                  <td>{order.totalPrice.toFixed(2)}</td>
+                  <td>৳{order.totalPrice.toFixed(2)}</td>
                   <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
                   {/* <td>
                     {order.isDelivered
@@ -91,7 +91,6 @@ export default function OrderHistoryScreen() {
                   <td>
                     <button
                       type="button"
-                      
                       onClick={() => {
                         navigate(`/order/${order._id}`);
                       }}

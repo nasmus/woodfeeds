@@ -137,7 +137,7 @@ function ShipingAddressScreen() {
                 required
               />
             </div>
-            
+
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
               <label
                 className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2"
@@ -190,11 +190,11 @@ function ShipingAddressScreen() {
           </div>
           <div className="flex justify-between">
             <h5>Total Price</h5>
-            <h5>{cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</h5>
+            <h5>৳{cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}</h5>
           </div>
         </div>
         <div className=" m-2">
-          <div className="flex items-center justify-items-center  ">
+          {/* <div className="flex items-center justify-items-center  ">
             <input
               id="Nagad"
               type="radio"
@@ -229,10 +229,11 @@ function ShipingAddressScreen() {
                 Bkash
               </label>
             </div>
-          </div>
+          </div> */}
           <div className="flex items-center">
             <div>
               <input
+                
                 id="cod"
                 type="radio"
                 value="Cash on delivery"

@@ -174,7 +174,7 @@ function PlaceOrderScreen() {
                           <span>{item.quantity}</span>
                         </Col>
                         <Col xs={3} md={3}>
-                          ${item.price}
+                          ৳{item.price}
                         </Col>
                       </Row>
                     </ListGroup.Item>
@@ -197,19 +197,19 @@ function PlaceOrderScreen() {
                   <ListGroup.Item>
                     <Row>
                       <Col>Items</Col>
-                      <Col>${cart.itemsPrice.toFixed(2)}</Col>
+                      <Col>৳{cart.itemsPrice.toFixed(2)}</Col>
                     </Row>
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <Row>
                       <Col>Shipping</Col>
-                      <Col>${cart.shippingPrice.toFixed(2)}</Col>
+                      <Col>৳{cart.shippingPrice.toFixed(2)}</Col>
                     </Row>
                   </ListGroup.Item>
                   <ListGroup.Item>
                     <Row>
                       <Col>Tax</Col>
-                      <Col>${cart.taxPrice.toFixed(2)}</Col>
+                      <Col>৳{cart.taxPrice.toFixed(2)}</Col>
                     </Row>
                   </ListGroup.Item>
                   <ListGroup.Item>
@@ -218,7 +218,7 @@ function PlaceOrderScreen() {
                         <strong>Order Total</strong>
                       </Col>
                       <Col>
-                        <strong>${cart.totalPrice.toFixed(2)}</strong>
+                        <strong>৳{cart.totalPrice.toFixed(2)}</strong>
                       </Col>
                     </Row>
                   </ListGroup.Item>

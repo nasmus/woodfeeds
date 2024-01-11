@@ -102,7 +102,11 @@ function ProductScreen() {
     <div>
       <div className="product_section">
         <div className="images">
-          <img className="main_image max-h-96 object-scale-down" src={`/images/${activeImage}`} alt="" />
+          <img
+            className="main_image max-h-96 object-scale-down"
+            src={`/images/${activeImage}`}
+            alt=""
+          />
           <div className="grid_viev_product">
             {imageValue.length > 0
               ? imageValue.map((image, index) => {
@@ -110,7 +114,6 @@ function ProductScreen() {
                     <img
                       src={`/images/${image}`}
                       alt=""
-                    
                       onClick={() => setActiveImage(image)}
                     />
                   );
@@ -122,9 +125,16 @@ function ProductScreen() {
           <h1>{product.name}</h1>
           <p>
             <Rating rating={product.rating} numReviews={product.numReviews} />
-            <b className=" text-cyan-500 " >{product.numReviews ? product.numReviews : 0} reviews</b>  | <b className=" text-orange-600 " >{product.countInStock} Stock</b> 
+            <b className=" text-cyan-500 ">
+              {product.numReviews ? product.numReviews : 0} reviews
+            </b>{" "}
+            | <b className=" text-orange-600 ">{product.countInStock} Stock</b>
           </p>
-          <h5> <i class="fa-solid fa-bangladeshi-taka-sign"></i> {product.price}</h5>
+          <h5>
+            {" "}
+                {/* <i class="fa-solid fa-bangladeshi-taka-sign"></i> */}
+                ৳{product.price}
+          </h5>
           <h4>Product Features</h4>
           <ul>
             {/* <li style={{ listStyleType: "square" }}>
