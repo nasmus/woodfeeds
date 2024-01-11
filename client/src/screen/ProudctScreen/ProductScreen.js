@@ -166,7 +166,7 @@ function ProductScreen() {
       </div>
       <div className="product_description mx-8 lg:my-2 my-4">
         <h3>Description</h3>
-        <p>product.description</p>
+        <p><div dangerouslySetInnerHTML={{ __html: product.description }} /></p>
       </div>
       <div className="product_suggest">
         <h2>Product Related To This Item</h2>

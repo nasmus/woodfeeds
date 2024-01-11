@@ -1,12 +1,16 @@
-import React, { useContext, useEffect, useReducer, useState,useRef } from "react";
+import React, {
+  useContext,
+  useEffect,
+  useReducer,
+  useState,
+  useRef,
+} from "react";
 import Sidebar from "../Component/Sidebar";
-import {Store} from '../Store'
+import { Store } from "../Store";
 import { useNavigate, useParams } from "react-router-dom";
 import { getError } from "../utils";
 import axios from "axios";
 import { Editor } from "@tinymce/tinymce-react";
-import CancelIcon from '@mui/icons-material/Cancel';
-
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -49,24 +53,21 @@ function EditProductScreen() {
   const [description, setDescription] = useState("");
   const [categoryId, setCategoryId] = useState("");
   const [chieldCategory, setChieldCategory] = useState([]);
-  const [chieldCategoryId, setChieldCategoryId] = useState("");
-  const [submitCategory, setSubmitCategory] = useState("");
   const [multipleImage, setMultipleImages] = useState([]);
   const [category, setCategory] = useState([]);
-  const [viewCategory, setViewCategory] = useState('');
+  const [viewCategory, setViewCategory] = useState("");
   const [viewImage, setViewImage] = useState([]);
-  const [editImage, setEditImage] = useState([])
+  const [newImage, setNewImage] = useState(null);
 
   const handleMultipleImageChange = (e) => {
     const files = e.target.files;
     setMultipleImages([...multipleImage, ...files]);
   };
 
-  // const handleImageDelete = (index) => {
-  //   const updatedImages = [...multipleImage];
-  //   updatedImages.splice(index, 1);
-  //   setEditImage({...multipleImage,  viewImage: updatedImages });
-  // };
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setNewImage(file);
+  };
 
   useEffect(() => {
     const fatchdata = async () => {
@@ -81,8 +82,8 @@ function EditProductScreen() {
         setBrand(data.brand);
         setPrice(data.price);
         setCountInStock(data.countInStock);
-        setViewCategory(data.category)
-        setViewImage(data.multipleImage)
+        setViewCategory(data.category);
+        setViewImage(data.multipleImage);
         dispatch({ type: "FETCH_SUCCESS" });
       } catch (error) {
         dispatch({ type: "FETCH_FAIL", payload: getError(error) });
@@ -106,6 +107,7 @@ function EditProductScreen() {
           image,
           countInStock,
           brand,
+          newImage,
         },
         { headers: { authorization: `Bearer ${userInfo.token}` } }
       );
@@ -120,10 +122,13 @@ function EditProductScreen() {
   return (
     <div>
       <Sidebar />
-      
-      
       <div style={{ paddingLeft: "200px" }}>
-        
+      <form
+            onSubmit={handleUpdateData}
+            method="post"
+            encType="multipart/form-data"
+            className="row g-3"
+          >
         <div className="w-full min-h-screen p-4 bg-gray-100">
           <div className="flex justify-between border-b-2 pb-2">
             <div className="flex">
@@ -131,19 +136,14 @@ function EditProductScreen() {
             </div>
             <div>
               <button
-                type="button"
+                type="submit"
                 class="text-white bg-gradient-to-br from-pink-500 to-orange-400 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-pink-200 dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
               >
                 Update Product
               </button>
             </div>
           </div>
-          <form
-            onSubmit={handleUpdateData}
-            method="post"
-            encType="multipart/form-data"
-            className="row g-3"
-          >
+          
             <div className="md:flex">
               <section className="bg-slate-50 p-2 m-2 md:w-2/3">
                 <h3 className="my-3 text-lg font-semibold">
@@ -165,7 +165,7 @@ function EditProductScreen() {
                   />
                 </div>
                 <div>
-                <label
+                  <label
                     htmlFor="countries_multiple"
                     className="block mb-2 text-sm font-semibold text-gray-900  w-full "
                   >
@@ -176,7 +176,6 @@ function EditProductScreen() {
                     className="p-2.5 rounded-lg border-2  w-full"
                     id="inputName"
                     value={viewCategory}
-                    
                   />
                 </div>
                 {/* TinyMCE Section */}
@@ -188,11 +187,11 @@ function EditProductScreen() {
                     Description
                   </label>
                   <Editor
-                  
                     onInit={(evt, editor) => (editorRef.current = editor)}
                     onEditorChange={(des, edt) => {
                       setDescription(des);
                     }}
+                    value={description}
                     init={{
                       height: 400,
                       menubar: false,
@@ -258,7 +257,7 @@ function EditProductScreen() {
                     >
                       Sub Category
                     </label>
-                    
+
                     <select
                       id="countries_multiple"
                       className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-48 p-4 md:w-60"
@@ -313,13 +312,12 @@ function EditProductScreen() {
                 <div>
                   <div className="image_grid">
                     {viewImage.map((images, index) => (
-                      <div className="image" key={index}>                        
-                         <img src={`/images/${images}`} alt={`${index + 1}`} />
-                         {/* <CancelIcon className=" cursor-pointer " onClick={() => handleImageDelete(index)}>Delete</CancelIcon> */}
+                      <div className="image" key={index}>
+                        <img src={`/images/${images}`} alt={`${index + 1}`} />
+                        <input type="file" onChange={handleImageChange} />
                       </div>
                     ))}
                   </div>
-                  
                 </div>
                 <div>
                   <div class="flex items-center justify-center w-full">
@@ -363,13 +361,12 @@ function EditProductScreen() {
                     </label>
                   </div>
                 </div>
-                
               </section>
             </div>
-          </form>
+          
         </div>
+        </form>
       </div>
-    
     </div>
   );
 }

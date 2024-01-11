@@ -100,6 +100,12 @@ function PlaceOrderScreen() {
       navigate("/payment");
     }
   }, [cart, navigate]);
+  
+  useEffect(() => {
+    if(!userInfo){
+      navigate('/')
+    }
+  },[userInfo,navigate])
 
   return (
     <div className="">
@@ -145,7 +151,7 @@ function PlaceOrderScreen() {
               <Card.Body>
                 <Card.Title>Items</Card.Title>
                 <ListGroup variant="flush">
-                  {cart.cartItems.map((item) => (
+                  {cart.cartItems && cart.cartItems.map((item) => (
                     <ListGroup.Item key={item._id}>
                       <Row className="align-items-center ">
                         <Col xs={6} md={6}>
@@ -222,7 +228,7 @@ function PlaceOrderScreen() {
                         type="button"
                         onClick={placeOrderHandler}
                         disabled={cart.cartItems.length === 0}
-                        className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-full"
+                        className="px-4 py-2 bg-cyan-500 hover:bg-cyan-600 text-white rounded-lg"
                       >
                         Place Order
                       </button>

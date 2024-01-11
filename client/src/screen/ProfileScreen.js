@@ -1,5 +1,5 @@
-import React, { useContext, useReducer, useState } from 'react';
-//import { useNavigate } from 'react-router-dom';
+import React, { useContext, useReducer, useState,useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 
 import axios from 'axios';
 import Form from 'react-bootstrap/Form';
@@ -22,6 +22,7 @@ const reducer = (state, action) => {
   };
   
   export default function ProfileScreen() {
+    const navigate = useNavigate();
     const { state, dispatch: ctxDispatch } = useContext(Store);
     const { userInfo } = state;
     const [name, setName] = useState(userInfo.name);
@@ -62,6 +63,12 @@ const reducer = (state, action) => {
         toast.error(getError(err));
       }
     };
+
+    useEffect(() => {
+      if(!userInfo){
+        navigate('/')
+      }
+    },[userInfo,navigate])
   
     return (
       <div className="container small-container">

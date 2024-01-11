@@ -4,6 +4,7 @@ import { toast } from "react-toastify";
 import { Store } from "../Store";
 import "../css/ShippingAddress.css";
 function ShipingAddressScreen() {
+  const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const {
     userInfo,
@@ -11,7 +12,7 @@ function ShipingAddressScreen() {
   } = state;
   const localData = JSON.parse(localStorage.getItem('userInfo'));
   
-  const navigate = useNavigate();
+  
 
    const [address, setAddress] = useState(shippingAddress.address || "");
    const [city, setCity] = useState(shippingAddress.city || "");
@@ -25,6 +26,7 @@ function ShipingAddressScreen() {
       navigate("/signin?redirect=/shipping");
     }
   }, [userInfo, navigate]);
+  
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -67,18 +69,12 @@ function ShipingAddressScreen() {
     paymentMethod || "Nagad"
   );
 
-  // useEffect(() => {
-  //   if (!shippingAddress.address) {
-  //     navigate('/shipping');
-  //   }
-  // }, [shippingAddress, navigate]);
-
   const handlePhoneNumberChange = (e) => {
         const cleanedPhoneNumber = e.target.value.replace(/\s/g, "");
         setPhoneNumber(cleanedPhoneNumber);
 
   }
-    
+  
 
   return (
     <form onSubmit={submitHandler} className="address">

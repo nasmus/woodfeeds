@@ -48,6 +48,13 @@ export default function OrderHistoryScreen() {
     };
     fetchData();
   }, [userInfo]);
+
+  useEffect(() => {
+    if(!userInfo){
+      navigate('/')
+    }
+  },[userInfo,navigate])
+
   return (
     <div>
       <Container>

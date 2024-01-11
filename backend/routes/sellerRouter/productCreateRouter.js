@@ -101,12 +101,15 @@ productCreateRouter.get(
 
 productCreateRouter.put(
   "/:id",
+  multipleUpload.single('image'),
   isAuth,
   isAdmin,
   expressAsyncHandler(async (req, res) => {
+    const { id } = req.params;
     try {
-      const product = await Product.findById(req.params.id);
+      const product = await Product.findById(id);
       if (product) {
+        
         product.name = req.body.name || product.name;
         product.slug = product.name;
         product.category = req.body.category || product.category;
@@ -124,6 +127,7 @@ productCreateRouter.put(
     } catch (err) {
       res.status(401).send(err);
     }
+    
   })
 );
 

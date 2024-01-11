@@ -8,7 +8,6 @@ function AllOrderScreen() {
   const { state } = useContext(Store);
   const { userInfo } = state;
   const [allOrder, setAllOrder] = useState([]);
-  const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const [currentPage, setCurrentPage] = useState(1);
   const [productsOrderPerPage] = useState(10);
@@ -45,6 +44,9 @@ function AllOrderScreen() {
         <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
           <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
+            <th scope="col" class="px-6 py-3">
+                index
+              </th>
               <th scope="col" class="px-6 py-3">
                 Order ID
               </th>
@@ -72,8 +74,9 @@ function AllOrderScreen() {
             </tr>
           </thead>
           <tbody>
-            {currentProducts.map((item, index) => (
-              <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            {currentProducts.toReversed().map((item, index) => (
+              <tr key={index} class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                <td class="px-6 py-4">{index+1}</td>
                 <th
                   scope="row"
                   class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
