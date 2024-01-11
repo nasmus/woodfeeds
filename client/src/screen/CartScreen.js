@@ -33,7 +33,7 @@ function CartScreen() {
     ctxDispatch({ type: "CART_REMOVE_ITEM", payload: item });
   };
   const checkOutHandler = () => {
-    navigate("/signup?redirect=/shipping");
+    navigate("/shipping/?redirect=/placeorder");
   };
 
   return (

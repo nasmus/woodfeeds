@@ -64,10 +64,10 @@ userRouter.post(
             } else {
               res
                 .status(401)
-                .send({ message: "Email or Phone number already in use!" });
+                .send({ message: " 1 Email or Phone number already in use!" });
             }
           } else {
-            res.status(401).send({ message: "Email or Phone number already in use!" });
+            res.status(401).send({ message: " 2 Email or Phone number already in use!" });
           }
         })
     )
