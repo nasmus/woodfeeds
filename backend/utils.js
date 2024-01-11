@@ -10,16 +10,15 @@ export const generateToken = (user) => {
     },
     process.env.JWT_SECRET,
     {
-      expiresIn: "5h",
+      expiresIn: "365d",
     }
   );
 };
 
 export const generateTokenAdmin = (user) => {
-  return jwt.sign(user,process.env.JWT_SECRET,
-    {
-      expiresIn: "5h",
-    })
+  return jwt.sign(user, process.env.JWT_SECRET, {
+    expiresIn: "5h",
+  });
 }
 
 export const isAuth = (req, res, next) => {
